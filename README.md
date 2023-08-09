@@ -24,7 +24,7 @@ dart pub global activate figma_importer
 
 ### Import styles from the Figma file
 
-1. [Setup](#setup-gear) plugin configuration yaml file (you only need to do it once)
+1. [Setup](#setup-) plugin configuration yaml file (you only need to do it once)
 
 2. Run the command:
 
