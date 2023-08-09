@@ -1,0 +1,43 @@
+name: figma_importer
+description: A light dart command-line tool for generating Figma styles as variables.
+version: 0.1.0
+repository: https://github.com/KhalillHussein/figma_importer
+homepage: https://github.com/KhalillHussein/figma_importer
+issue_tracker: https://github.com/KhalillHussein/figma_importer/issues
+documentation: https://github.com/KhalillHussein/figma_importer/tree/master/#readme
+topics: [cli, figma, design-tokens, code-gen]
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  args: ^2.4.1
+  cli_completion: ^0.3.0
+  code_builder: ^4.5.0
+  collection: ^1.17.2
+  copy_with_extension: ^5.0.3
+  dart_style: ^2.3.2
+  equatable: ^2.0.5
+  http: ^0.13.5
+  http2: ^2.0.1
+  json2yaml: ^3.0.1
+  json_annotation: ^4.8.1
+  mason_logger: ^0.2.5
+  meta: ^1.9.1
+  path: ^1.8.3
+  pub_updater: ^0.3.0
+  recase: ^4.1.0
+  yaml: ^3.1.2
+
+dev_dependencies:
+  build_runner: ^2.4.4
+  build_verify: ^3.1.0
+  build_version: ^2.1.1
+  copy_with_extension_gen: ^5.0.3
+  json_serializable: ^6.7.0
+  mocktail: ^0.3.0
+  test: ^1.24.2
+  very_good_analysis: ^5.0.0
+
+executables:
+  figma_importer:

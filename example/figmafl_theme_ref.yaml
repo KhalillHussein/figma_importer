@@ -1,0 +1,91 @@
+# Theme reference example for manual theme generation
+
+theme_reference:
+  themes:
+    - name: coolLightTheme
+      brightness: light
+      text_theme: myWonderfulTextTheme
+      color_scheme: myWonderfulColorScheme
+    - name: coolDarkTheme
+      brightness: dark
+      text_theme: myWonderfulTextTheme
+      color_scheme: myWonderfulColorScheme
+    - name: someTheme
+      brightness: light
+      text_theme: someTextTheme
+      color_scheme: someColorScheme
+ 
+  text_themes:
+    - name: myWonderfulTextTheme
+      properties:
+        display_large: m3/display/large
+        display_medium: m3/display/medium
+        display_small: m3/display/small
+        headline_large: m3/headline/large
+        headline_medium: m3/headline/medium
+        headline_small: m3/headline/small
+        title_large: m3/title/large
+        title_medium: m3/title/medium
+        title_small: m3/title/small
+        body_large: m3/body/large
+        body_medium: m3/body/medium
+        body_small: m3/body/small
+        label_large: m3/label/large
+        label_medium: m3/label/medium
+        label_small: m3/label/small
+
+    - name: someTextTheme
+      properties:
+        display_large: m3/display/large
+        headline_large: m3/headline/large
+        headline_medium: m3/headline/medium
+        headline_small: m3/headline/small
+        title_large: m3/title/large
+        body_large: m3/body/large
+        body_medium: m3/body/medium
+        body_small: m3/body/small
+        label_large: m3/label/large
+
+      
+  color_schemes:
+    - name: myWonderfulColorScheme
+      factory: light
+      properties:
+        primary: m3/sys/light/primary
+        on_primary: m3/sys/light/on-primary
+        primary_container: m3/sys/light/primary-container
+        on_primary_container: m3/sys/light/on-primary-container
+        secondary: m3/sys/light/secondary
+        on_secondary: m3/sys/light/on-secondary
+        secondary_container: m3/sys/light/secondary-container
+        on_secondary_container: m3/sys/light/on-secondary-container
+        tertiary: m3/sys/light/tertiary
+        on_tertiary: m3/sys/light/on-tertiary
+        tertiary_container: m3/sys/light/tertiary-container
+        on_tertiary_container: m3/sys/light/on-tertiary-container
+        error: m3/sys/light/error
+        on_error: m3/sys/light/on-error
+        error_container: m3/sys/light/error-container
+        on_error_container: m3/sys/light/on-error-container
+        background: m3/sys/light/background
+        on_background: m3/sys/light/on-background
+        surface: m3/sys/light/surface
+        on_surface: m3/sys/light/on-surface
+        surface_variant: m3/sys/light/surface-variant
+        on_surface_variant: m3/sys/light/on-surface-variant
+        outline: m3/sys/light/outline
+        outline_variant: m3/sys/light/outline-variant
+        shadow: m3/sys/light/shadow
+        scrim: m3/sys/light/scrim
+        inverse_surface: m3/sys/light/inverse-surface
+        on_inverse_surface: m3/sys/light/inverse-on-surface
+        inverse_primary: m3/sys/light/inverse-primary
+        surface_tint: m3/sys/light/surface-tint
+
+    - name: someColorScheme
+      factory: light
+      properties:
+        primary: m3/sys/light/primary
+        on_primary: m3/sys/light/on-primary
+        primary_container: m3/sys/light/primary-container
+        surface_tint: m3/sys/light/surface-tint
