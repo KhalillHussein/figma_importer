@@ -76,7 +76,7 @@ class MyAppShadows {
 }
 ```
 
-## Setup ⚙️
+## Setup
 
 ### Create Configuration
 
