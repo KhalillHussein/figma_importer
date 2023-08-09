@@ -1,6 +1,6 @@
 name: figma_importer
 description: A light dart command-line tool for generating Figma styles as variables.
-version: 0.1.0+1
+version: 0.1.0+2
 repository: https://github.com/KhalillHussein/figma_importer
 homepage: https://github.com/KhalillHussein/figma_importer
 issue_tracker: https://github.com/KhalillHussein/figma_importer/issues
