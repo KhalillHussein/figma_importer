@@ -24,7 +24,7 @@ dart pub global activate figma_importer
 
 ### Import styles from the Figma file
 
-1. [Setup](#setup-⚙️) plugin configuration yaml file (you only need to do it once)
+1. [Setup](#gear-setup) plugin configuration yaml file (you only need to do it once)
 
 2. Run the command:
 
@@ -193,7 +193,7 @@ Manual Theme generation has three steps:
 If you encounter any problems feel free to open an [issue](https://github.com/khalilHussein/figma_importer/issues/new?template=bug_report.md). If you feel the library is missing a feature, please raise a [ticket](https://github.com/khalillHussein/figma_importer/issues/new?template=feature_request.md). Pull request are also welcome.
 
 [pub_badge]: https://img.shields.io/pub/v/figma_importer.svg
-[pub_link]: https://pub.dartlang.org/packages/very_good_cli
+[pub_link]: https://pub.dartlang.org/packages/figma_importer
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license_link]: https://opensource.org/licenses/MIT
 [very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
