@@ -1,4 +1,4 @@
-![Banner](/doc/figma_importer_cover.png?raw=true)
+![Banner](https://raw.githubusercontent.com/KhalillHussein/figma_importer/main/doc/figma_importer_cover.png?raw=true)
 
 
 [![pub package][pub_badge]][pub_link]
@@ -122,7 +122,7 @@ figma_importer:
 
 https://www.figma.com/developers/api#authentication
 
-![Get token](/doc/get_figma_api_token.png)
+![Get token](https://raw.githubusercontent.com/KhalillHussein/figma_importer/main/doc/get_figma_api_token.png)
 
 #### Structure of the Figma file link
 To understand how to get properties, just see the file link params example:
