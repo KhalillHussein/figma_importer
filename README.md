@@ -190,7 +190,7 @@ Manual Theme generation has three steps:
 
 ## Bugs or Requests 🤝
 
-If you encounter any problems feel free to open an [issue](https://github.com/khalilHussein/figma_importer/issues/new?template=bug_report.md). If you feel the library is missing a feature, please raise a [ticket](https://github.com/khalillHussein/figma_importer/issues/new?template=feature_request.md). Pull request are also welcome.
+If you encounter any problems feel free to open an [issue](https://github.com/KhalillHussein/figma_importer/issues/new?template=bug_report.md). If you feel the library is missing a feature, please raise a [ticket](https://github.com/KhalillHussein/figma_importer/issues/new?template=feature_request.md). Pull request are also welcome.
 
 [pub_badge]: https://img.shields.io/pub/v/figma_importer.svg
 [pub_link]: https://pub.dartlang.org/packages/figma_importer
