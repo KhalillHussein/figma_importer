@@ -5,7 +5,7 @@ repository: https://github.com/KhalillHussein/figma_importer
 homepage: https://github.com/KhalillHussein/figma_importer
 issue_tracker: https://github.com/KhalillHussein/figma_importer/issues
 documentation: https://github.com/KhalillHussein/figma_importer/tree/master/#readme
-topics: [cli, figma, design-tokens, code-gen]
+topics: [cli, console, figma, design-tokens, codegen]
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
