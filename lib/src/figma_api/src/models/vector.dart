@@ -47,7 +47,6 @@ class Vector extends Node {
     this.strokeAlign,
     this.styles,
     this.absoluteRenderBounds,
-    this.fillOverrideTable,
   });
 
   factory Vector.fromJson(Map<String, dynamic> json) => _$VectorFromJson(json);
@@ -130,11 +129,6 @@ class Vector extends Node {
   @JsonKey(defaultValue: [])
   final List<Path> fillGeometry;
 
-  /// Map from ID to PaintOverride for looking up fill overrides. To see which
-  /// regions are overriden, you must use the geometry=paths option. Each path
-  /// returned may have an overrideId which maps to this table.
-  final Map<int, PaintOverride>? fillOverrideTable;
-
   /// An array of stroke paints applied to the node.
   @JsonKey(defaultValue: [])
   final List<Paint> strokes;
@@ -213,7 +207,6 @@ class Vector extends Node {
         strokeAlign,
         styles,
         absoluteRenderBounds,
-        fillOverrideTable,
       ];
 
   @override

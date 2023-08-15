@@ -58,7 +58,6 @@ class BooleanOperation extends Vector {
     super.strokeAlign,
     super.styles,
     super.absoluteRenderBounds,
-    super.fillOverrideTable,
     super.individualStrokeWeights,
     this.children,
     this.operation,

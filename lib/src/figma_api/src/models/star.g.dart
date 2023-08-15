@@ -78,8 +78,6 @@ abstract class _$StarCWProxy {
 
   Star absoluteRenderBounds(SizeRectangle? absoluteRenderBounds);
 
-  Star fillOverrideTable(Map<int, PaintOverride>? fillOverrideTable);
-
   Star individualStrokeWeights(StrokeWeights? individualStrokeWeights);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Star(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
@@ -124,7 +122,6 @@ abstract class _$StarCWProxy {
     StrokeAlign? strokeAlign,
     Map<StyleTypeKey, String>? styles,
     SizeRectangle? absoluteRenderBounds,
-    Map<int, PaintOverride>? fillOverrideTable,
     StrokeWeights? individualStrokeWeights,
   });
 }
@@ -256,10 +253,6 @@ class _$StarCWProxyImpl implements _$StarCWProxy {
       this(absoluteRenderBounds: absoluteRenderBounds);
 
   @override
-  Star fillOverrideTable(Map<int, PaintOverride>? fillOverrideTable) =>
-      this(fillOverrideTable: fillOverrideTable);
-
-  @override
   Star individualStrokeWeights(StrokeWeights? individualStrokeWeights) =>
       this(individualStrokeWeights: individualStrokeWeights);
 
@@ -307,7 +300,6 @@ class _$StarCWProxyImpl implements _$StarCWProxy {
     Object? strokeAlign = const $CopyWithPlaceholder(),
     Object? styles = const $CopyWithPlaceholder(),
     Object? absoluteRenderBounds = const $CopyWithPlaceholder(),
-    Object? fillOverrideTable = const $CopyWithPlaceholder(),
     Object? individualStrokeWeights = const $CopyWithPlaceholder(),
   }) {
     return Star(
@@ -461,10 +453,6 @@ class _$StarCWProxyImpl implements _$StarCWProxy {
           ? _value.absoluteRenderBounds
           // ignore: cast_nullable_to_non_nullable
           : absoluteRenderBounds as SizeRectangle?,
-      fillOverrideTable: fillOverrideTable == const $CopyWithPlaceholder()
-          ? _value.fillOverrideTable
-          // ignore: cast_nullable_to_non_nullable
-          : fillOverrideTable as Map<int, PaintOverride>?,
       individualStrokeWeights:
           individualStrokeWeights == const $CopyWithPlaceholder()
               ? _value.individualStrokeWeights
@@ -563,11 +551,6 @@ Star _$StarFromJson(Map<String, dynamic> json) => Star(
           ? null
           : SizeRectangle.fromJson(
               json['absoluteRenderBounds'] as Map<String, dynamic>),
-      fillOverrideTable:
-          (json['fillOverrideTable'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(
-            int.parse(k), PaintOverride.fromJson(e as Map<String, dynamic>)),
-      ),
       individualStrokeWeights: json['individualStrokeWeights'] == null
           ? null
           : StrokeWeights.fromJson(
@@ -601,8 +584,6 @@ Map<String, dynamic> _$StarToJson(Star instance) => <String, dynamic>{
       'isMask': instance.isMask,
       'fills': instance.fills,
       'fillGeometry': instance.fillGeometry,
-      'fillOverrideTable':
-          instance.fillOverrideTable?.map((k, e) => MapEntry(k.toString(), e)),
       'strokes': instance.strokes,
       'strokeWeight': instance.strokeWeight,
       'individualStrokeWeights': instance.individualStrokeWeights,

@@ -78,8 +78,6 @@ abstract class _$TextCWProxy {
 
   Text absoluteRenderBounds(SizeRectangle? absoluteRenderBounds);
 
-  Text fillOverrideTable(Map<int, PaintOverride>? fillOverrideTable);
-
   Text individualStrokeWeights(StrokeWeights? individualStrokeWeights);
 
   Text characters(String? characters);
@@ -136,7 +134,6 @@ abstract class _$TextCWProxy {
     StrokeAlign? strokeAlign,
     Map<StyleTypeKey, String>? styles,
     SizeRectangle? absoluteRenderBounds,
-    Map<int, PaintOverride>? fillOverrideTable,
     StrokeWeights? individualStrokeWeights,
     String? characters,
     TypeStyle? style,
@@ -274,10 +271,6 @@ class _$TextCWProxyImpl implements _$TextCWProxy {
       this(absoluteRenderBounds: absoluteRenderBounds);
 
   @override
-  Text fillOverrideTable(Map<int, PaintOverride>? fillOverrideTable) =>
-      this(fillOverrideTable: fillOverrideTable);
-
-  @override
   Text individualStrokeWeights(StrokeWeights? individualStrokeWeights) =>
       this(individualStrokeWeights: individualStrokeWeights);
 
@@ -346,7 +339,6 @@ class _$TextCWProxyImpl implements _$TextCWProxy {
     Object? strokeAlign = const $CopyWithPlaceholder(),
     Object? styles = const $CopyWithPlaceholder(),
     Object? absoluteRenderBounds = const $CopyWithPlaceholder(),
-    Object? fillOverrideTable = const $CopyWithPlaceholder(),
     Object? individualStrokeWeights = const $CopyWithPlaceholder(),
     Object? characters = const $CopyWithPlaceholder(),
     Object? style = const $CopyWithPlaceholder(),
@@ -506,10 +498,6 @@ class _$TextCWProxyImpl implements _$TextCWProxy {
           ? _value.absoluteRenderBounds
           // ignore: cast_nullable_to_non_nullable
           : absoluteRenderBounds as SizeRectangle?,
-      fillOverrideTable: fillOverrideTable == const $CopyWithPlaceholder()
-          ? _value.fillOverrideTable
-          // ignore: cast_nullable_to_non_nullable
-          : fillOverrideTable as Map<int, PaintOverride>?,
       individualStrokeWeights:
           individualStrokeWeights == const $CopyWithPlaceholder()
               ? _value.individualStrokeWeights
@@ -633,11 +621,6 @@ Text _$TextFromJson(Map<String, dynamic> json) => Text(
           ? null
           : SizeRectangle.fromJson(
               json['absoluteRenderBounds'] as Map<String, dynamic>),
-      fillOverrideTable:
-          (json['fillOverrideTable'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(
-            int.parse(k), PaintOverride.fromJson(e as Map<String, dynamic>)),
-      ),
       individualStrokeWeights: json['individualStrokeWeights'] == null
           ? null
           : StrokeWeights.fromJson(
@@ -690,8 +673,6 @@ Map<String, dynamic> _$TextToJson(Text instance) => <String, dynamic>{
       'isMask': instance.isMask,
       'fills': instance.fills,
       'fillGeometry': instance.fillGeometry,
-      'fillOverrideTable':
-          instance.fillOverrideTable?.map((k, e) => MapEntry(k.toString(), e)),
       'strokes': instance.strokes,
       'strokeWeight': instance.strokeWeight,
       'individualStrokeWeights': instance.individualStrokeWeights,

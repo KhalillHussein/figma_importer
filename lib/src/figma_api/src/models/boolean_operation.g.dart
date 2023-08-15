@@ -78,9 +78,6 @@ abstract class _$BooleanOperationCWProxy {
 
   BooleanOperation absoluteRenderBounds(SizeRectangle? absoluteRenderBounds);
 
-  BooleanOperation fillOverrideTable(
-      Map<int, PaintOverride>? fillOverrideTable);
-
   BooleanOperation individualStrokeWeights(
       StrokeWeights? individualStrokeWeights);
 
@@ -130,7 +127,6 @@ abstract class _$BooleanOperationCWProxy {
     StrokeAlign? strokeAlign,
     Map<StyleTypeKey, String>? styles,
     SizeRectangle? absoluteRenderBounds,
-    Map<int, PaintOverride>? fillOverrideTable,
     StrokeWeights? individualStrokeWeights,
     List<Node?>? children,
     Operation? operation,
@@ -273,11 +269,6 @@ class _$BooleanOperationCWProxyImpl implements _$BooleanOperationCWProxy {
       this(absoluteRenderBounds: absoluteRenderBounds);
 
   @override
-  BooleanOperation fillOverrideTable(
-          Map<int, PaintOverride>? fillOverrideTable) =>
-      this(fillOverrideTable: fillOverrideTable);
-
-  @override
   BooleanOperation individualStrokeWeights(
           StrokeWeights? individualStrokeWeights) =>
       this(individualStrokeWeights: individualStrokeWeights);
@@ -333,7 +324,6 @@ class _$BooleanOperationCWProxyImpl implements _$BooleanOperationCWProxy {
     Object? strokeAlign = const $CopyWithPlaceholder(),
     Object? styles = const $CopyWithPlaceholder(),
     Object? absoluteRenderBounds = const $CopyWithPlaceholder(),
-    Object? fillOverrideTable = const $CopyWithPlaceholder(),
     Object? individualStrokeWeights = const $CopyWithPlaceholder(),
     Object? children = const $CopyWithPlaceholder(),
     Object? operation = const $CopyWithPlaceholder(),
@@ -489,10 +479,6 @@ class _$BooleanOperationCWProxyImpl implements _$BooleanOperationCWProxy {
           ? _value.absoluteRenderBounds
           // ignore: cast_nullable_to_non_nullable
           : absoluteRenderBounds as SizeRectangle?,
-      fillOverrideTable: fillOverrideTable == const $CopyWithPlaceholder()
-          ? _value.fillOverrideTable
-          // ignore: cast_nullable_to_non_nullable
-          : fillOverrideTable as Map<int, PaintOverride>?,
       individualStrokeWeights:
           individualStrokeWeights == const $CopyWithPlaceholder()
               ? _value.individualStrokeWeights
@@ -600,11 +586,6 @@ BooleanOperation _$BooleanOperationFromJson(Map<String, dynamic> json) =>
           ? null
           : SizeRectangle.fromJson(
               json['absoluteRenderBounds'] as Map<String, dynamic>),
-      fillOverrideTable:
-          (json['fillOverrideTable'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(
-            int.parse(k), PaintOverride.fromJson(e as Map<String, dynamic>)),
-      ),
       individualStrokeWeights: json['individualStrokeWeights'] == null
           ? null
           : StrokeWeights.fromJson(
@@ -643,8 +624,6 @@ Map<String, dynamic> _$BooleanOperationToJson(BooleanOperation instance) =>
       'isMask': instance.isMask,
       'fills': instance.fills,
       'fillGeometry': instance.fillGeometry,
-      'fillOverrideTable':
-          instance.fillOverrideTable?.map((k, e) => MapEntry(k.toString(), e)),
       'strokes': instance.strokes,
       'strokeWeight': instance.strokeWeight,
       'individualStrokeWeights': instance.individualStrokeWeights,

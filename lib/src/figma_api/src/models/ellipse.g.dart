@@ -80,8 +80,6 @@ abstract class _$EllipseCWProxy {
 
   Ellipse absoluteRenderBounds(SizeRectangle? absoluteRenderBounds);
 
-  Ellipse fillOverrideTable(Map<int, PaintOverride>? fillOverrideTable);
-
   Ellipse individualStrokeWeights(StrokeWeights? individualStrokeWeights);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Ellipse(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
@@ -127,7 +125,6 @@ abstract class _$EllipseCWProxy {
     StrokeAlign? strokeAlign,
     Map<StyleTypeKey, String>? styles,
     SizeRectangle? absoluteRenderBounds,
-    Map<int, PaintOverride>? fillOverrideTable,
     StrokeWeights? individualStrokeWeights,
   });
 }
@@ -266,10 +263,6 @@ class _$EllipseCWProxyImpl implements _$EllipseCWProxy {
       this(absoluteRenderBounds: absoluteRenderBounds);
 
   @override
-  Ellipse fillOverrideTable(Map<int, PaintOverride>? fillOverrideTable) =>
-      this(fillOverrideTable: fillOverrideTable);
-
-  @override
   Ellipse individualStrokeWeights(StrokeWeights? individualStrokeWeights) =>
       this(individualStrokeWeights: individualStrokeWeights);
 
@@ -318,7 +311,6 @@ class _$EllipseCWProxyImpl implements _$EllipseCWProxy {
     Object? strokeAlign = const $CopyWithPlaceholder(),
     Object? styles = const $CopyWithPlaceholder(),
     Object? absoluteRenderBounds = const $CopyWithPlaceholder(),
-    Object? fillOverrideTable = const $CopyWithPlaceholder(),
     Object? individualStrokeWeights = const $CopyWithPlaceholder(),
   }) {
     return Ellipse(
@@ -476,10 +468,6 @@ class _$EllipseCWProxyImpl implements _$EllipseCWProxy {
           ? _value.absoluteRenderBounds
           // ignore: cast_nullable_to_non_nullable
           : absoluteRenderBounds as SizeRectangle?,
-      fillOverrideTable: fillOverrideTable == const $CopyWithPlaceholder()
-          ? _value.fillOverrideTable
-          // ignore: cast_nullable_to_non_nullable
-          : fillOverrideTable as Map<int, PaintOverride>?,
       individualStrokeWeights:
           individualStrokeWeights == const $CopyWithPlaceholder()
               ? _value.individualStrokeWeights
@@ -579,11 +567,6 @@ Ellipse _$EllipseFromJson(Map<String, dynamic> json) => Ellipse(
           ? null
           : SizeRectangle.fromJson(
               json['absoluteRenderBounds'] as Map<String, dynamic>),
-      fillOverrideTable:
-          (json['fillOverrideTable'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(
-            int.parse(k), PaintOverride.fromJson(e as Map<String, dynamic>)),
-      ),
       individualStrokeWeights: json['individualStrokeWeights'] == null
           ? null
           : StrokeWeights.fromJson(
@@ -617,8 +600,6 @@ Map<String, dynamic> _$EllipseToJson(Ellipse instance) => <String, dynamic>{
       'isMask': instance.isMask,
       'fills': instance.fills,
       'fillGeometry': instance.fillGeometry,
-      'fillOverrideTable':
-          instance.fillOverrideTable?.map((k, e) => MapEntry(k.toString(), e)),
       'strokes': instance.strokes,
       'strokeWeight': instance.strokeWeight,
       'individualStrokeWeights': instance.individualStrokeWeights,

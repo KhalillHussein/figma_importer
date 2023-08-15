@@ -45,7 +45,6 @@ class Star extends Vector {
     super.strokeAlign,
     super.styles,
     super.absoluteRenderBounds,
-    super.fillOverrideTable,
     super.individualStrokeWeights,
   });
 

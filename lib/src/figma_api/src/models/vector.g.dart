@@ -80,8 +80,6 @@ abstract class _$VectorCWProxy {
 
   Vector absoluteRenderBounds(SizeRectangle? absoluteRenderBounds);
 
-  Vector fillOverrideTable(Map<int, PaintOverride>? fillOverrideTable);
-
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Vector(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -125,7 +123,6 @@ abstract class _$VectorCWProxy {
     StrokeAlign? strokeAlign,
     Map<StyleTypeKey, String>? styles,
     SizeRectangle? absoluteRenderBounds,
-    Map<int, PaintOverride>? fillOverrideTable,
   });
 }
 
@@ -263,10 +260,6 @@ class _$VectorCWProxyImpl implements _$VectorCWProxy {
       this(absoluteRenderBounds: absoluteRenderBounds);
 
   @override
-  Vector fillOverrideTable(Map<int, PaintOverride>? fillOverrideTable) =>
-      this(fillOverrideTable: fillOverrideTable);
-
-  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Vector(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -311,7 +304,6 @@ class _$VectorCWProxyImpl implements _$VectorCWProxy {
     Object? strokeAlign = const $CopyWithPlaceholder(),
     Object? styles = const $CopyWithPlaceholder(),
     Object? absoluteRenderBounds = const $CopyWithPlaceholder(),
-    Object? fillOverrideTable = const $CopyWithPlaceholder(),
   }) {
     return Vector(
       id: id == const $CopyWithPlaceholder() || id == null
@@ -469,10 +461,6 @@ class _$VectorCWProxyImpl implements _$VectorCWProxy {
           ? _value.absoluteRenderBounds
           // ignore: cast_nullable_to_non_nullable
           : absoluteRenderBounds as SizeRectangle?,
-      fillOverrideTable: fillOverrideTable == const $CopyWithPlaceholder()
-          ? _value.fillOverrideTable
-          // ignore: cast_nullable_to_non_nullable
-          : fillOverrideTable as Map<int, PaintOverride>?,
     );
   }
 }
@@ -570,11 +558,6 @@ Vector _$VectorFromJson(Map<String, dynamic> json) => Vector(
           ? null
           : SizeRectangle.fromJson(
               json['absoluteRenderBounds'] as Map<String, dynamic>),
-      fillOverrideTable:
-          (json['fillOverrideTable'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(
-            int.parse(k), PaintOverride.fromJson(e as Map<String, dynamic>)),
-      ),
     );
 
 Map<String, dynamic> _$VectorToJson(Vector instance) => <String, dynamic>{
@@ -604,8 +587,6 @@ Map<String, dynamic> _$VectorToJson(Vector instance) => <String, dynamic>{
       'isMask': instance.isMask,
       'fills': instance.fills,
       'fillGeometry': instance.fillGeometry,
-      'fillOverrideTable':
-          instance.fillOverrideTable?.map((k, e) => MapEntry(k.toString(), e)),
       'strokes': instance.strokes,
       'strokeWeight': instance.strokeWeight,
       'individualStrokeWeights': instance.individualStrokeWeights,

@@ -78,8 +78,6 @@ abstract class _$RectangleCWProxy {
 
   Rectangle absoluteRenderBounds(SizeRectangle? absoluteRenderBounds);
 
-  Rectangle fillOverrideTable(Map<int, PaintOverride>? fillOverrideTable);
-
   Rectangle individualStrokeWeights(StrokeWeights? individualStrokeWeights);
 
   Rectangle cornerRadius(double? cornerRadius);
@@ -128,7 +126,6 @@ abstract class _$RectangleCWProxy {
     StrokeAlign? strokeAlign,
     Map<StyleTypeKey, String>? styles,
     SizeRectangle? absoluteRenderBounds,
-    Map<int, PaintOverride>? fillOverrideTable,
     StrokeWeights? individualStrokeWeights,
     double? cornerRadius,
     List<double>? rectangleCornerRadii,
@@ -266,10 +263,6 @@ class _$RectangleCWProxyImpl implements _$RectangleCWProxy {
       this(absoluteRenderBounds: absoluteRenderBounds);
 
   @override
-  Rectangle fillOverrideTable(Map<int, PaintOverride>? fillOverrideTable) =>
-      this(fillOverrideTable: fillOverrideTable);
-
-  @override
   Rectangle individualStrokeWeights(StrokeWeights? individualStrokeWeights) =>
       this(individualStrokeWeights: individualStrokeWeights);
 
@@ -325,7 +318,6 @@ class _$RectangleCWProxyImpl implements _$RectangleCWProxy {
     Object? strokeAlign = const $CopyWithPlaceholder(),
     Object? styles = const $CopyWithPlaceholder(),
     Object? absoluteRenderBounds = const $CopyWithPlaceholder(),
-    Object? fillOverrideTable = const $CopyWithPlaceholder(),
     Object? individualStrokeWeights = const $CopyWithPlaceholder(),
     Object? cornerRadius = const $CopyWithPlaceholder(),
     Object? rectangleCornerRadii = const $CopyWithPlaceholder(),
@@ -481,10 +473,6 @@ class _$RectangleCWProxyImpl implements _$RectangleCWProxy {
           ? _value.absoluteRenderBounds
           // ignore: cast_nullable_to_non_nullable
           : absoluteRenderBounds as SizeRectangle?,
-      fillOverrideTable: fillOverrideTable == const $CopyWithPlaceholder()
-          ? _value.fillOverrideTable
-          // ignore: cast_nullable_to_non_nullable
-          : fillOverrideTable as Map<int, PaintOverride>?,
       individualStrokeWeights:
           individualStrokeWeights == const $CopyWithPlaceholder()
               ? _value.individualStrokeWeights
@@ -591,11 +579,6 @@ Rectangle _$RectangleFromJson(Map<String, dynamic> json) => Rectangle(
           ? null
           : SizeRectangle.fromJson(
               json['absoluteRenderBounds'] as Map<String, dynamic>),
-      fillOverrideTable:
-          (json['fillOverrideTable'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(
-            int.parse(k), PaintOverride.fromJson(e as Map<String, dynamic>)),
-      ),
       individualStrokeWeights: json['individualStrokeWeights'] == null
           ? null
           : StrokeWeights.fromJson(
@@ -633,8 +616,6 @@ Map<String, dynamic> _$RectangleToJson(Rectangle instance) => <String, dynamic>{
       'isMask': instance.isMask,
       'fills': instance.fills,
       'fillGeometry': instance.fillGeometry,
-      'fillOverrideTable':
-          instance.fillOverrideTable?.map((k, e) => MapEntry(k.toString(), e)),
       'strokes': instance.strokes,
       'strokeWeight': instance.strokeWeight,
       'individualStrokeWeights': instance.individualStrokeWeights,

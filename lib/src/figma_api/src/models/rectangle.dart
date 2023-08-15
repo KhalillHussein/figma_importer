@@ -46,7 +46,6 @@ class Rectangle extends Vector {
     super.strokeAlign,
     super.styles,
     super.absoluteRenderBounds,
-    super.fillOverrideTable,
     super.individualStrokeWeights,
     this.cornerRadius,
     this.rectangleCornerRadii,

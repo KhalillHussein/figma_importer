@@ -78,8 +78,6 @@ abstract class _$RegularPolygonCWProxy {
 
   RegularPolygon absoluteRenderBounds(SizeRectangle? absoluteRenderBounds);
 
-  RegularPolygon fillOverrideTable(Map<int, PaintOverride>? fillOverrideTable);
-
   RegularPolygon individualStrokeWeights(
       StrokeWeights? individualStrokeWeights);
 
@@ -125,7 +123,6 @@ abstract class _$RegularPolygonCWProxy {
     StrokeAlign? strokeAlign,
     Map<StyleTypeKey, String>? styles,
     SizeRectangle? absoluteRenderBounds,
-    Map<int, PaintOverride>? fillOverrideTable,
     StrokeWeights? individualStrokeWeights,
   });
 }
@@ -263,11 +260,6 @@ class _$RegularPolygonCWProxyImpl implements _$RegularPolygonCWProxy {
       this(absoluteRenderBounds: absoluteRenderBounds);
 
   @override
-  RegularPolygon fillOverrideTable(
-          Map<int, PaintOverride>? fillOverrideTable) =>
-      this(fillOverrideTable: fillOverrideTable);
-
-  @override
   RegularPolygon individualStrokeWeights(
           StrokeWeights? individualStrokeWeights) =>
       this(individualStrokeWeights: individualStrokeWeights);
@@ -316,7 +308,6 @@ class _$RegularPolygonCWProxyImpl implements _$RegularPolygonCWProxy {
     Object? strokeAlign = const $CopyWithPlaceholder(),
     Object? styles = const $CopyWithPlaceholder(),
     Object? absoluteRenderBounds = const $CopyWithPlaceholder(),
-    Object? fillOverrideTable = const $CopyWithPlaceholder(),
     Object? individualStrokeWeights = const $CopyWithPlaceholder(),
   }) {
     return RegularPolygon(
@@ -470,10 +461,6 @@ class _$RegularPolygonCWProxyImpl implements _$RegularPolygonCWProxy {
           ? _value.absoluteRenderBounds
           // ignore: cast_nullable_to_non_nullable
           : absoluteRenderBounds as SizeRectangle?,
-      fillOverrideTable: fillOverrideTable == const $CopyWithPlaceholder()
-          ? _value.fillOverrideTable
-          // ignore: cast_nullable_to_non_nullable
-          : fillOverrideTable as Map<int, PaintOverride>?,
       individualStrokeWeights:
           individualStrokeWeights == const $CopyWithPlaceholder()
               ? _value.individualStrokeWeights
@@ -573,11 +560,6 @@ RegularPolygon _$RegularPolygonFromJson(Map<String, dynamic> json) =>
           ? null
           : SizeRectangle.fromJson(
               json['absoluteRenderBounds'] as Map<String, dynamic>),
-      fillOverrideTable:
-          (json['fillOverrideTable'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(
-            int.parse(k), PaintOverride.fromJson(e as Map<String, dynamic>)),
-      ),
       individualStrokeWeights: json['individualStrokeWeights'] == null
           ? null
           : StrokeWeights.fromJson(
@@ -612,8 +594,6 @@ Map<String, dynamic> _$RegularPolygonToJson(RegularPolygon instance) =>
       'isMask': instance.isMask,
       'fills': instance.fills,
       'fillGeometry': instance.fillGeometry,
-      'fillOverrideTable':
-          instance.fillOverrideTable?.map((k, e) => MapEntry(k.toString(), e)),
       'strokes': instance.strokes,
       'strokeWeight': instance.strokeWeight,
       'individualStrokeWeights': instance.individualStrokeWeights,
