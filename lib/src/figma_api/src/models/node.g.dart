@@ -9,9 +9,9 @@ part of 'node.dart';
 abstract class _$NodeCWProxy {
   Node id(String id);
 
-  Node name(String? name);
-
   Node visible(bool visible);
+
+  Node name(String? name);
 
   Node type(String? type);
 
@@ -32,8 +32,8 @@ abstract class _$NodeCWProxy {
   /// ````
   Node call({
     String? id,
-    String? name,
     bool? visible,
+    String? name,
     String? type,
     dynamic pluginData,
     dynamic sharedPluginData,
@@ -52,10 +52,10 @@ class _$NodeCWProxyImpl implements _$NodeCWProxy {
   Node id(String id) => this(id: id);
 
   @override
-  Node name(String? name) => this(name: name);
+  Node visible(bool visible) => this(visible: visible);
 
   @override
-  Node visible(bool visible) => this(visible: visible);
+  Node name(String? name) => this(name: name);
 
   @override
   Node type(String? type) => this(type: type);
@@ -85,8 +85,8 @@ class _$NodeCWProxyImpl implements _$NodeCWProxy {
   /// ````
   Node call({
     Object? id = const $CopyWithPlaceholder(),
-    Object? name = const $CopyWithPlaceholder(),
     Object? visible = const $CopyWithPlaceholder(),
+    Object? name = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
     Object? pluginData = const $CopyWithPlaceholder(),
     Object? sharedPluginData = const $CopyWithPlaceholder(),
@@ -95,33 +95,29 @@ class _$NodeCWProxyImpl implements _$NodeCWProxy {
   }) {
     return Node(
       id: id == const $CopyWithPlaceholder() || id == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.id!
+          ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String,
+      visible: visible == const $CopyWithPlaceholder() || visible == null
+          ? _value.visible
+          // ignore: cast_nullable_to_non_nullable
+          : visible as bool,
       name: name == const $CopyWithPlaceholder()
           ? _value.name
           // ignore: cast_nullable_to_non_nullable
           : name as String?,
-      visible: visible == const $CopyWithPlaceholder() || visible == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.visible!
-          // ignore: cast_nullable_to_non_nullable
-          : visible as bool,
       type: type == const $CopyWithPlaceholder()
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
           : type as String?,
       pluginData:
           pluginData == const $CopyWithPlaceholder() || pluginData == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.pluginData!
+              ? _value.pluginData
               // ignore: cast_nullable_to_non_nullable
               : pluginData as dynamic,
       sharedPluginData: sharedPluginData == const $CopyWithPlaceholder() ||
               sharedPluginData == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.sharedPluginData!
+          ? _value.sharedPluginData
           // ignore: cast_nullable_to_non_nullable
           : sharedPluginData as dynamic,
       rotation: rotation == const $CopyWithPlaceholder()
@@ -149,8 +145,8 @@ extension $NodeCopyWith on Node {
 
 Node _$NodeFromJson(Map<String, dynamic> json) => Node(
       id: json['id'] as String,
-      name: json['name'] as String?,
       visible: json['visible'] as bool? ?? true,
+      name: json['name'] as String?,
       type: json['type'] as String?,
       pluginData: json['pluginData'],
       sharedPluginData: json['sharedPluginData'],

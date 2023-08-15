@@ -11,6 +11,12 @@ abstract class _$CanvasCWProxy {
 
   Canvas visible(bool visible);
 
+  Canvas prototypeDevice(PrototypeDevice prototypeDevice);
+
+  Canvas flowStartingPoints(List<FlowStartingPoint> flowStartingPoints);
+
+  Canvas exportSettings(List<ExportSetting> exportSettings);
+
   Canvas componentPropertyReferencesMap(
       Map<String, String>? componentPropertyReferencesMap);
 
@@ -23,12 +29,6 @@ abstract class _$CanvasCWProxy {
   Canvas sharedPluginData(dynamic sharedPluginData);
 
   Canvas type(String? type);
-
-  Canvas prototypeDevice(PrototypeDevice prototypeDevice);
-
-  Canvas flowStartingPoints(List<FlowStartingPoint> flowStartingPoints);
-
-  Canvas exportSettings(List<ExportSetting> exportSettings);
 
   Canvas children(List<Node?>? children);
 
@@ -43,15 +43,15 @@ abstract class _$CanvasCWProxy {
   Canvas call({
     String? id,
     bool? visible,
+    PrototypeDevice? prototypeDevice,
+    List<FlowStartingPoint>? flowStartingPoints,
+    List<ExportSetting>? exportSettings,
     Map<String, String>? componentPropertyReferencesMap,
     String? name,
     double? rotation,
     dynamic pluginData,
     dynamic sharedPluginData,
     String? type,
-    PrototypeDevice? prototypeDevice,
-    List<FlowStartingPoint>? flowStartingPoints,
-    List<ExportSetting>? exportSettings,
     List<Node?>? children,
     Color? backgroundColor,
   });
@@ -68,6 +68,18 @@ class _$CanvasCWProxyImpl implements _$CanvasCWProxy {
 
   @override
   Canvas visible(bool visible) => this(visible: visible);
+
+  @override
+  Canvas prototypeDevice(PrototypeDevice prototypeDevice) =>
+      this(prototypeDevice: prototypeDevice);
+
+  @override
+  Canvas flowStartingPoints(List<FlowStartingPoint> flowStartingPoints) =>
+      this(flowStartingPoints: flowStartingPoints);
+
+  @override
+  Canvas exportSettings(List<ExportSetting> exportSettings) =>
+      this(exportSettings: exportSettings);
 
   @override
   Canvas componentPropertyReferencesMap(
@@ -91,18 +103,6 @@ class _$CanvasCWProxyImpl implements _$CanvasCWProxy {
   Canvas type(String? type) => this(type: type);
 
   @override
-  Canvas prototypeDevice(PrototypeDevice prototypeDevice) =>
-      this(prototypeDevice: prototypeDevice);
-
-  @override
-  Canvas flowStartingPoints(List<FlowStartingPoint> flowStartingPoints) =>
-      this(flowStartingPoints: flowStartingPoints);
-
-  @override
-  Canvas exportSettings(List<ExportSetting> exportSettings) =>
-      this(exportSettings: exportSettings);
-
-  @override
   Canvas children(List<Node?>? children) => this(children: children);
 
   @override
@@ -120,29 +120,42 @@ class _$CanvasCWProxyImpl implements _$CanvasCWProxy {
   Canvas call({
     Object? id = const $CopyWithPlaceholder(),
     Object? visible = const $CopyWithPlaceholder(),
+    Object? prototypeDevice = const $CopyWithPlaceholder(),
+    Object? flowStartingPoints = const $CopyWithPlaceholder(),
+    Object? exportSettings = const $CopyWithPlaceholder(),
     Object? componentPropertyReferencesMap = const $CopyWithPlaceholder(),
     Object? name = const $CopyWithPlaceholder(),
     Object? rotation = const $CopyWithPlaceholder(),
     Object? pluginData = const $CopyWithPlaceholder(),
     Object? sharedPluginData = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
-    Object? prototypeDevice = const $CopyWithPlaceholder(),
-    Object? flowStartingPoints = const $CopyWithPlaceholder(),
-    Object? exportSettings = const $CopyWithPlaceholder(),
     Object? children = const $CopyWithPlaceholder(),
     Object? backgroundColor = const $CopyWithPlaceholder(),
   }) {
     return Canvas(
       id: id == const $CopyWithPlaceholder() || id == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.id!
+          ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String,
       visible: visible == const $CopyWithPlaceholder() || visible == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.visible!
+          ? _value.visible
           // ignore: cast_nullable_to_non_nullable
           : visible as bool,
+      prototypeDevice: prototypeDevice == const $CopyWithPlaceholder() ||
+              prototypeDevice == null
+          ? _value.prototypeDevice
+          // ignore: cast_nullable_to_non_nullable
+          : prototypeDevice as PrototypeDevice,
+      flowStartingPoints: flowStartingPoints == const $CopyWithPlaceholder() ||
+              flowStartingPoints == null
+          ? _value.flowStartingPoints
+          // ignore: cast_nullable_to_non_nullable
+          : flowStartingPoints as List<FlowStartingPoint>,
+      exportSettings: exportSettings == const $CopyWithPlaceholder() ||
+              exportSettings == null
+          ? _value.exportSettings
+          // ignore: cast_nullable_to_non_nullable
+          : exportSettings as List<ExportSetting>,
       componentPropertyReferencesMap:
           componentPropertyReferencesMap == const $CopyWithPlaceholder()
               ? _value.componentPropertyReferencesMap
@@ -158,38 +171,18 @@ class _$CanvasCWProxyImpl implements _$CanvasCWProxy {
           : rotation as double?,
       pluginData:
           pluginData == const $CopyWithPlaceholder() || pluginData == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.pluginData!
+              ? _value.pluginData
               // ignore: cast_nullable_to_non_nullable
               : pluginData as dynamic,
       sharedPluginData: sharedPluginData == const $CopyWithPlaceholder() ||
               sharedPluginData == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.sharedPluginData!
+          ? _value.sharedPluginData
           // ignore: cast_nullable_to_non_nullable
           : sharedPluginData as dynamic,
       type: type == const $CopyWithPlaceholder()
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
           : type as String?,
-      prototypeDevice: prototypeDevice == const $CopyWithPlaceholder() ||
-              prototypeDevice == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.prototypeDevice!
-          // ignore: cast_nullable_to_non_nullable
-          : prototypeDevice as PrototypeDevice,
-      flowStartingPoints: flowStartingPoints == const $CopyWithPlaceholder() ||
-              flowStartingPoints == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.flowStartingPoints!
-          // ignore: cast_nullable_to_non_nullable
-          : flowStartingPoints as List<FlowStartingPoint>,
-      exportSettings: exportSettings == const $CopyWithPlaceholder() ||
-              exportSettings == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.exportSettings!
-          // ignore: cast_nullable_to_non_nullable
-          : exportSettings as List<ExportSetting>,
       children: children == const $CopyWithPlaceholder()
           ? _value.children
           // ignore: cast_nullable_to_non_nullable
@@ -215,16 +208,6 @@ extension $CanvasCopyWith on Canvas {
 Canvas _$CanvasFromJson(Map<String, dynamic> json) => Canvas(
       id: json['id'] as String,
       visible: json['visible'] as bool? ?? true,
-      componentPropertyReferencesMap:
-          (json['componentPropertyReferencesMap'] as Map<String, dynamic>?)
-              ?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      name: json['name'] as String?,
-      rotation: (json['rotation'] as num?)?.toDouble(),
-      pluginData: json['pluginData'],
-      sharedPluginData: json['sharedPluginData'],
-      type: json['type'] as String?,
       prototypeDevice: PrototypeDevice.fromJson(
           json['prototypeDevice'] as Map<String, dynamic>),
       flowStartingPoints: (json['flowStartingPoints'] as List<dynamic>?)
@@ -236,6 +219,16 @@ Canvas _$CanvasFromJson(Map<String, dynamic> json) => Canvas(
               ?.map((e) => ExportSetting.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
+      componentPropertyReferencesMap:
+          (json['componentPropertyReferencesMap'] as Map<String, dynamic>?)
+              ?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
+      name: json['name'] as String?,
+      rotation: (json['rotation'] as num?)?.toDouble(),
+      pluginData: json['pluginData'],
+      sharedPluginData: json['sharedPluginData'],
+      type: json['type'] as String?,
       children: (json['children'] as List<dynamic>?)
           ?.map(const NodeJsonConverter().fromJson)
           .toList(),

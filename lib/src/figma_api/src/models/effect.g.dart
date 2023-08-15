@@ -7,9 +7,9 @@ part of 'effect.dart';
 // **************************************************************************
 
 abstract class _$EffectCWProxy {
-  Effect type(EffectType? type);
-
   Effect visible(bool visible);
+
+  Effect type(EffectType? type);
 
   Effect radius(num? radius);
 
@@ -30,8 +30,8 @@ abstract class _$EffectCWProxy {
   /// Effect(...).copyWith(id: 12, name: "My name")
   /// ````
   Effect call({
-    EffectType? type,
     bool? visible,
+    EffectType? type,
     num? radius,
     num? spread,
     Color? color,
@@ -48,10 +48,10 @@ class _$EffectCWProxyImpl implements _$EffectCWProxy {
   final Effect _value;
 
   @override
-  Effect type(EffectType? type) => this(type: type);
+  Effect visible(bool visible) => this(visible: visible);
 
   @override
-  Effect visible(bool visible) => this(visible: visible);
+  Effect type(EffectType? type) => this(type: type);
 
   @override
   Effect radius(num? radius) => this(radius: radius);
@@ -81,8 +81,8 @@ class _$EffectCWProxyImpl implements _$EffectCWProxy {
   /// Effect(...).copyWith(id: 12, name: "My name")
   /// ````
   Effect call({
-    Object? type = const $CopyWithPlaceholder(),
     Object? visible = const $CopyWithPlaceholder(),
+    Object? type = const $CopyWithPlaceholder(),
     Object? radius = const $CopyWithPlaceholder(),
     Object? spread = const $CopyWithPlaceholder(),
     Object? color = const $CopyWithPlaceholder(),
@@ -91,15 +91,14 @@ class _$EffectCWProxyImpl implements _$EffectCWProxy {
     Object? showShadowBehindNode = const $CopyWithPlaceholder(),
   }) {
     return Effect(
+      visible: visible == const $CopyWithPlaceholder() || visible == null
+          ? _value.visible
+          // ignore: cast_nullable_to_non_nullable
+          : visible as bool,
       type: type == const $CopyWithPlaceholder()
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
           : type as EffectType?,
-      visible: visible == const $CopyWithPlaceholder() || visible == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.visible!
-          // ignore: cast_nullable_to_non_nullable
-          : visible as bool,
       radius: radius == const $CopyWithPlaceholder()
           ? _value.radius
           // ignore: cast_nullable_to_non_nullable
@@ -139,8 +138,8 @@ extension $EffectCopyWith on Effect {
 // **************************************************************************
 
 Effect _$EffectFromJson(Map<String, dynamic> json) => Effect(
-      type: $enumDecodeNullable(_$EffectTypeEnumMap, json['type']),
       visible: json['visible'] as bool? ?? true,
+      type: $enumDecodeNullable(_$EffectTypeEnumMap, json['type']),
       radius: json['radius'] as num?,
       spread: json['spread'] as num?,
       color: json['color'] == null

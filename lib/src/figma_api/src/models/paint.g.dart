@@ -7,9 +7,9 @@ part of 'paint.dart';
 // **************************************************************************
 
 abstract class _$PaintCWProxy {
-  Paint type(PaintType? type);
-
   Paint visible(bool visible);
+
+  Paint type(PaintType? type);
 
   Paint opacity(double? opacity);
 
@@ -38,8 +38,8 @@ abstract class _$PaintCWProxy {
   /// Paint(...).copyWith(id: 12, name: "My name")
   /// ````
   Paint call({
-    PaintType? type,
     bool? visible,
+    PaintType? type,
     double? opacity,
     Color? color,
     BlendMode? blendMode,
@@ -60,10 +60,10 @@ class _$PaintCWProxyImpl implements _$PaintCWProxy {
   final Paint _value;
 
   @override
-  Paint type(PaintType? type) => this(type: type);
+  Paint visible(bool visible) => this(visible: visible);
 
   @override
-  Paint visible(bool visible) => this(visible: visible);
+  Paint type(PaintType? type) => this(type: type);
 
   @override
   Paint opacity(double? opacity) => this(opacity: opacity);
@@ -107,8 +107,8 @@ class _$PaintCWProxyImpl implements _$PaintCWProxy {
   /// Paint(...).copyWith(id: 12, name: "My name")
   /// ````
   Paint call({
-    Object? type = const $CopyWithPlaceholder(),
     Object? visible = const $CopyWithPlaceholder(),
+    Object? type = const $CopyWithPlaceholder(),
     Object? opacity = const $CopyWithPlaceholder(),
     Object? color = const $CopyWithPlaceholder(),
     Object? blendMode = const $CopyWithPlaceholder(),
@@ -121,15 +121,14 @@ class _$PaintCWProxyImpl implements _$PaintCWProxy {
     Object? gifRef = const $CopyWithPlaceholder(),
   }) {
     return Paint(
+      visible: visible == const $CopyWithPlaceholder() || visible == null
+          ? _value.visible
+          // ignore: cast_nullable_to_non_nullable
+          : visible as bool,
       type: type == const $CopyWithPlaceholder()
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
           : type as PaintType?,
-      visible: visible == const $CopyWithPlaceholder() || visible == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.visible!
-          // ignore: cast_nullable_to_non_nullable
-          : visible as bool,
       opacity: opacity == const $CopyWithPlaceholder()
           ? _value.opacity
           // ignore: cast_nullable_to_non_nullable
@@ -186,8 +185,8 @@ extension $PaintCopyWith on Paint {
 // **************************************************************************
 
 Paint _$PaintFromJson(Map<String, dynamic> json) => Paint(
-      type: $enumDecodeNullable(_$PaintTypeEnumMap, json['type']),
       visible: json['visible'] as bool? ?? true,
+      type: $enumDecodeNullable(_$PaintTypeEnumMap, json['type']),
       opacity: (json['opacity'] as num?)?.toDouble(),
       color: json['color'] == null
           ? null

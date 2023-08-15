@@ -7,9 +7,9 @@ part of 'arc_data.dart';
 // **************************************************************************
 
 abstract class _$ArcDataCWProxy {
-  ArcData start(double start);
+  ArcData start(double? start);
 
-  ArcData end(double end);
+  ArcData end(double? end);
 
   ArcData innerRadius(double innerRadius);
 
@@ -33,10 +33,10 @@ class _$ArcDataCWProxyImpl implements _$ArcDataCWProxy {
   final ArcData _value;
 
   @override
-  ArcData start(double start) => this(start: start);
+  ArcData start(double? start) => this(start: start);
 
   @override
-  ArcData end(double end) => this(end: end);
+  ArcData end(double? end) => this(end: end);
 
   @override
   ArcData innerRadius(double innerRadius) => this(innerRadius: innerRadius);
@@ -55,20 +55,17 @@ class _$ArcDataCWProxyImpl implements _$ArcDataCWProxy {
     Object? innerRadius = const $CopyWithPlaceholder(),
   }) {
     return ArcData(
-      start: start == const $CopyWithPlaceholder() || start == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.start!
+      start: start == const $CopyWithPlaceholder()
+          ? _value.start
           // ignore: cast_nullable_to_non_nullable
-          : start as double,
-      end: end == const $CopyWithPlaceholder() || end == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.end!
+          : start as double?,
+      end: end == const $CopyWithPlaceholder()
+          ? _value.end
           // ignore: cast_nullable_to_non_nullable
-          : end as double,
+          : end as double?,
       innerRadius:
           innerRadius == const $CopyWithPlaceholder() || innerRadius == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.innerRadius!
+              ? _value.innerRadius
               // ignore: cast_nullable_to_non_nullable
               : innerRadius as double,
     );

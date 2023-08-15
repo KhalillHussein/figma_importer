@@ -889,8 +889,8 @@ ColorScheme _$ColorSchemeFromJson(Map<String, dynamic> json) => ColorScheme(
 Map<String, dynamic> _$ColorSchemeToJson(ColorScheme instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'factory': _$ColorSchemeFactoryEnumMap[instance.factory]!,
       'properties': instance.properties.toJson(),
+      'factory': _$ColorSchemeFactoryEnumMap[instance.factory]!,
     };
 
 const _$ColorSchemeFactoryEnumMap = {

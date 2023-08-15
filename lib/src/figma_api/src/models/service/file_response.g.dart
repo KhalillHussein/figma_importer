@@ -171,11 +171,7 @@ FileResponse _$FileResponseFromJson(Map<String, dynamic> json) => FileResponse(
           : DateTime.parse(json['lastModified'] as String),
       thumbnailUrl: json['thumbnailUrl'] as String?,
       version: json['version'] as String?,
-      document: json['document'] == null
-          ? null
-          : const NodeJsonConverter().fromJson(
-              json['document'] as Map<String, dynamic>,
-            ),
+      document: const NodeJsonConverter().fromJson(json['document']),
       components: (json['components'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, Component.fromJson(e as Map<String, dynamic>)),
       ),
@@ -195,7 +191,7 @@ Map<String, dynamic> _$FileResponseToJson(FileResponse instance) =>
       'lastModified': instance.lastModified?.toIso8601String(),
       'thumbnailUrl': instance.thumbnailUrl,
       'version': instance.version,
-      'document': instance.document,
+      'document': const NodeJsonConverter().toJson(instance.document),
       'components': instance.components,
       'componentSets': instance.componentSets,
       'schemaVersion': instance.schemaVersion,

@@ -11,6 +11,16 @@ abstract class _$SectionCWProxy {
 
   Section visible(bool visible);
 
+  Section locked(bool locked);
+
+  Section fills(List<Paint> fills);
+
+  Section strokes(List<Paint> strokes);
+
+  Section children(List<Node?>? children);
+
+  Section opacity(double opacity);
+
   Section componentPropertyReferencesMap(
       Map<String, String>? componentPropertyReferencesMap);
 
@@ -23,16 +33,6 @@ abstract class _$SectionCWProxy {
   Section sharedPluginData(dynamic sharedPluginData);
 
   Section type(String? type);
-
-  Section locked(bool locked);
-
-  Section fills(List<Paint> fills);
-
-  Section strokes(List<Paint> strokes);
-
-  Section children(List<Node?>? children);
-
-  Section opacity(double opacity);
 
   Section absoluteBoundingBox(SizeRectangle? absoluteBoundingBox);
 
@@ -53,17 +53,17 @@ abstract class _$SectionCWProxy {
   Section call({
     String? id,
     bool? visible,
+    bool? locked,
+    List<Paint>? fills,
+    List<Paint>? strokes,
+    List<Node?>? children,
+    double? opacity,
     Map<String, String>? componentPropertyReferencesMap,
     String? name,
     double? rotation,
     dynamic pluginData,
     dynamic sharedPluginData,
     String? type,
-    bool? locked,
-    List<Paint>? fills,
-    List<Paint>? strokes,
-    List<Node?>? children,
-    double? opacity,
     SizeRectangle? absoluteBoundingBox,
     SizeRectangle? absoluteRenderBounds,
     double? strokeWeight,
@@ -85,6 +85,21 @@ class _$SectionCWProxyImpl implements _$SectionCWProxy {
   Section visible(bool visible) => this(visible: visible);
 
   @override
+  Section locked(bool locked) => this(locked: locked);
+
+  @override
+  Section fills(List<Paint> fills) => this(fills: fills);
+
+  @override
+  Section strokes(List<Paint> strokes) => this(strokes: strokes);
+
+  @override
+  Section children(List<Node?>? children) => this(children: children);
+
+  @override
+  Section opacity(double opacity) => this(opacity: opacity);
+
+  @override
   Section componentPropertyReferencesMap(
           Map<String, String>? componentPropertyReferencesMap) =>
       this(componentPropertyReferencesMap: componentPropertyReferencesMap);
@@ -104,21 +119,6 @@ class _$SectionCWProxyImpl implements _$SectionCWProxy {
 
   @override
   Section type(String? type) => this(type: type);
-
-  @override
-  Section locked(bool locked) => this(locked: locked);
-
-  @override
-  Section fills(List<Paint> fills) => this(fills: fills);
-
-  @override
-  Section strokes(List<Paint> strokes) => this(strokes: strokes);
-
-  @override
-  Section children(List<Node?>? children) => this(children: children);
-
-  @override
-  Section opacity(double opacity) => this(opacity: opacity);
 
   @override
   Section absoluteBoundingBox(SizeRectangle? absoluteBoundingBox) =>
@@ -151,17 +151,17 @@ class _$SectionCWProxyImpl implements _$SectionCWProxy {
   Section call({
     Object? id = const $CopyWithPlaceholder(),
     Object? visible = const $CopyWithPlaceholder(),
+    Object? locked = const $CopyWithPlaceholder(),
+    Object? fills = const $CopyWithPlaceholder(),
+    Object? strokes = const $CopyWithPlaceholder(),
+    Object? children = const $CopyWithPlaceholder(),
+    Object? opacity = const $CopyWithPlaceholder(),
     Object? componentPropertyReferencesMap = const $CopyWithPlaceholder(),
     Object? name = const $CopyWithPlaceholder(),
     Object? rotation = const $CopyWithPlaceholder(),
     Object? pluginData = const $CopyWithPlaceholder(),
     Object? sharedPluginData = const $CopyWithPlaceholder(),
     Object? type = const $CopyWithPlaceholder(),
-    Object? locked = const $CopyWithPlaceholder(),
-    Object? fills = const $CopyWithPlaceholder(),
-    Object? strokes = const $CopyWithPlaceholder(),
-    Object? children = const $CopyWithPlaceholder(),
-    Object? opacity = const $CopyWithPlaceholder(),
     Object? absoluteBoundingBox = const $CopyWithPlaceholder(),
     Object? absoluteRenderBounds = const $CopyWithPlaceholder(),
     Object? strokeWeight = const $CopyWithPlaceholder(),
@@ -177,6 +177,26 @@ class _$SectionCWProxyImpl implements _$SectionCWProxy {
           ? _value.visible
           // ignore: cast_nullable_to_non_nullable
           : visible as bool,
+      locked: locked == const $CopyWithPlaceholder() || locked == null
+          ? _value.locked
+          // ignore: cast_nullable_to_non_nullable
+          : locked as bool,
+      fills: fills == const $CopyWithPlaceholder() || fills == null
+          ? _value.fills
+          // ignore: cast_nullable_to_non_nullable
+          : fills as List<Paint>,
+      strokes: strokes == const $CopyWithPlaceholder() || strokes == null
+          ? _value.strokes
+          // ignore: cast_nullable_to_non_nullable
+          : strokes as List<Paint>,
+      children: children == const $CopyWithPlaceholder()
+          ? _value.children
+          // ignore: cast_nullable_to_non_nullable
+          : children as List<Node?>?,
+      opacity: opacity == const $CopyWithPlaceholder() || opacity == null
+          ? _value.opacity
+          // ignore: cast_nullable_to_non_nullable
+          : opacity as double,
       componentPropertyReferencesMap:
           componentPropertyReferencesMap == const $CopyWithPlaceholder()
               ? _value.componentPropertyReferencesMap
@@ -204,26 +224,6 @@ class _$SectionCWProxyImpl implements _$SectionCWProxy {
           ? _value.type
           // ignore: cast_nullable_to_non_nullable
           : type as String?,
-      locked: locked == const $CopyWithPlaceholder() || locked == null
-          ? _value.locked
-          // ignore: cast_nullable_to_non_nullable
-          : locked as bool,
-      fills: fills == const $CopyWithPlaceholder() || fills == null
-          ? _value.fills
-          // ignore: cast_nullable_to_non_nullable
-          : fills as List<Paint>,
-      strokes: strokes == const $CopyWithPlaceholder() || strokes == null
-          ? _value.strokes
-          // ignore: cast_nullable_to_non_nullable
-          : strokes as List<Paint>,
-      children: children == const $CopyWithPlaceholder()
-          ? _value.children
-          // ignore: cast_nullable_to_non_nullable
-          : children as List<Node?>?,
-      opacity: opacity == const $CopyWithPlaceholder() || opacity == null
-          ? _value.opacity
-          // ignore: cast_nullable_to_non_nullable
-          : opacity as double,
       absoluteBoundingBox: absoluteBoundingBox == const $CopyWithPlaceholder()
           ? _value.absoluteBoundingBox
           // ignore: cast_nullable_to_non_nullable
@@ -262,16 +262,6 @@ extension $SectionCopyWith on Section {
 Section _$SectionFromJson(Map<String, dynamic> json) => Section(
       id: json['id'] as String,
       visible: json['visible'] as bool? ?? true,
-      componentPropertyReferencesMap:
-          (json['componentPropertyReferencesMap'] as Map<String, dynamic>?)
-              ?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      name: json['name'] as String?,
-      rotation: (json['rotation'] as num?)?.toDouble(),
-      pluginData: json['pluginData'],
-      sharedPluginData: json['sharedPluginData'],
-      type: json['type'] as String?,
       locked: json['locked'] as bool? ?? false,
       fills: (json['fills'] as List<dynamic>?)
               ?.map((e) => Paint.fromJson(e as Map<String, dynamic>))
@@ -285,6 +275,16 @@ Section _$SectionFromJson(Map<String, dynamic> json) => Section(
           ?.map(const NodeJsonConverter().fromJson)
           .toList(),
       opacity: (json['opacity'] as num?)?.toDouble() ?? 1.0,
+      componentPropertyReferencesMap:
+          (json['componentPropertyReferencesMap'] as Map<String, dynamic>?)
+              ?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
+      name: json['name'] as String?,
+      rotation: (json['rotation'] as num?)?.toDouble(),
+      pluginData: json['pluginData'],
+      sharedPluginData: json['sharedPluginData'],
+      type: json['type'] as String?,
       absoluteBoundingBox: json['absoluteBoundingBox'] == null
           ? null
           : SizeRectangle.fromJson(

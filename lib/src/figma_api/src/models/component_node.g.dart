@@ -15,11 +15,13 @@ abstract class _$ComponentNodeCWProxy {
 
   ComponentNode fills(List<Paint> fills);
 
+  ComponentNode styles(Map<StyleTypeKey, String>? styles);
+
   ComponentNode strokes(List<Paint> strokes);
 
   ComponentNode exportSettings(List<ExportSetting> exportSettings);
 
-  ComponentNode children(List<Node> children);
+  ComponentNode children(List<Node?>? children);
 
   ComponentNode opacity(double opacity);
 
@@ -79,9 +81,10 @@ abstract class _$ComponentNodeCWProxy {
     bool? visible,
     bool? locked,
     List<Paint>? fills,
+    Map<StyleTypeKey, String>? styles,
     List<Paint>? strokes,
     List<ExportSetting>? exportSettings,
-    List<Node>? children,
+    List<Node?>? children,
     double? opacity,
     PrimaryAxisAlignItems? primaryAxisAlignItems,
     CounterAxisAlignItems? counterAxisAlignItems,
@@ -125,6 +128,10 @@ class _$ComponentNodeCWProxyImpl implements _$ComponentNodeCWProxy {
   ComponentNode fills(List<Paint> fills) => this(fills: fills);
 
   @override
+  ComponentNode styles(Map<StyleTypeKey, String>? styles) =>
+      this(styles: styles);
+
+  @override
   ComponentNode strokes(List<Paint> strokes) => this(strokes: strokes);
 
   @override
@@ -132,7 +139,7 @@ class _$ComponentNodeCWProxyImpl implements _$ComponentNodeCWProxy {
       this(exportSettings: exportSettings);
 
   @override
-  ComponentNode children(List<Node> children) => this(children: children);
+  ComponentNode children(List<Node?>? children) => this(children: children);
 
   @override
   ComponentNode opacity(double opacity) => this(opacity: opacity);
@@ -233,6 +240,7 @@ class _$ComponentNodeCWProxyImpl implements _$ComponentNodeCWProxy {
     Object? visible = const $CopyWithPlaceholder(),
     Object? locked = const $CopyWithPlaceholder(),
     Object? fills = const $CopyWithPlaceholder(),
+    Object? styles = const $CopyWithPlaceholder(),
     Object? strokes = const $CopyWithPlaceholder(),
     Object? exportSettings = const $CopyWithPlaceholder(),
     Object? children = const $CopyWithPlaceholder(),
@@ -257,179 +265,150 @@ class _$ComponentNodeCWProxyImpl implements _$ComponentNodeCWProxy {
     Object? itemReverseZIndex = const $CopyWithPlaceholder(),
     Object? strokesIncludedInLayout = const $CopyWithPlaceholder(),
     Object? componentPropertyDefinitions = const $CopyWithPlaceholder(),
-    Object? styles = const $CopyWithPlaceholder(),
   }) {
     return ComponentNode(
       id: id == const $CopyWithPlaceholder() || id == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.id!
+          ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String,
       visible: visible == const $CopyWithPlaceholder() || visible == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.visible!
+          ? _value.visible
           // ignore: cast_nullable_to_non_nullable
           : visible as bool,
       locked: locked == const $CopyWithPlaceholder() || locked == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.locked!
+          ? _value.locked
           // ignore: cast_nullable_to_non_nullable
           : locked as bool,
       fills: fills == const $CopyWithPlaceholder() || fills == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.fills!
+          ? _value.fills
           // ignore: cast_nullable_to_non_nullable
           : fills as List<Paint>,
+      styles: styles == const $CopyWithPlaceholder()
+          ? _value.styles
+          // ignore: cast_nullable_to_non_nullable
+          : styles as Map<StyleTypeKey, String>?,
       strokes: strokes == const $CopyWithPlaceholder() || strokes == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.strokes!
+          ? _value.strokes
           // ignore: cast_nullable_to_non_nullable
           : strokes as List<Paint>,
       exportSettings: exportSettings == const $CopyWithPlaceholder() ||
               exportSettings == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.exportSettings!
+          ? _value.exportSettings
           // ignore: cast_nullable_to_non_nullable
           : exportSettings as List<ExportSetting>,
-      children: children == const $CopyWithPlaceholder() || children == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.children!
+      children: children == const $CopyWithPlaceholder()
+          ? _value.children
           // ignore: cast_nullable_to_non_nullable
-          : children as List<Node>,
+          : children as List<Node?>?,
       opacity: opacity == const $CopyWithPlaceholder() || opacity == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.opacity!
+          ? _value.opacity
           // ignore: cast_nullable_to_non_nullable
           : opacity as double,
       primaryAxisAlignItems:
           primaryAxisAlignItems == const $CopyWithPlaceholder() ||
                   primaryAxisAlignItems == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.primaryAxisAlignItems!
+              ? _value.primaryAxisAlignItems
               // ignore: cast_nullable_to_non_nullable
               : primaryAxisAlignItems as PrimaryAxisAlignItems,
       counterAxisAlignItems:
           counterAxisAlignItems == const $CopyWithPlaceholder() ||
                   counterAxisAlignItems == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.counterAxisAlignItems!
+              ? _value.counterAxisAlignItems
               // ignore: cast_nullable_to_non_nullable
               : counterAxisAlignItems as CounterAxisAlignItems,
       primaryAxisSizingMode:
           primaryAxisSizingMode == const $CopyWithPlaceholder() ||
                   primaryAxisSizingMode == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.primaryAxisSizingMode!
+              ? _value.primaryAxisSizingMode
               // ignore: cast_nullable_to_non_nullable
               : primaryAxisSizingMode as PrimaryAxisSizingMode,
       counterAxisSizingMode:
           counterAxisSizingMode == const $CopyWithPlaceholder() ||
                   counterAxisSizingMode == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.counterAxisSizingMode!
+              ? _value.counterAxisSizingMode
               // ignore: cast_nullable_to_non_nullable
               : counterAxisSizingMode as CounterAxisSizingMode,
       paddingBottom:
           paddingBottom == const $CopyWithPlaceholder() || paddingBottom == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.paddingBottom!
+              ? _value.paddingBottom
               // ignore: cast_nullable_to_non_nullable
               : paddingBottom as double,
       paddingLeft:
           paddingLeft == const $CopyWithPlaceholder() || paddingLeft == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.paddingLeft!
+              ? _value.paddingLeft
               // ignore: cast_nullable_to_non_nullable
               : paddingLeft as double,
       paddingRight:
           paddingRight == const $CopyWithPlaceholder() || paddingRight == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.paddingRight!
+              ? _value.paddingRight
               // ignore: cast_nullable_to_non_nullable
               : paddingRight as double,
       paddingTop:
           paddingTop == const $CopyWithPlaceholder() || paddingTop == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.paddingTop!
+              ? _value.paddingTop
               // ignore: cast_nullable_to_non_nullable
               : paddingTop as double,
       horizontalPadding: horizontalPadding == const $CopyWithPlaceholder() ||
               horizontalPadding == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.horizontalPadding!
+          ? _value.horizontalPadding
           // ignore: cast_nullable_to_non_nullable
           : horizontalPadding as double,
       verticalPadding: verticalPadding == const $CopyWithPlaceholder() ||
               verticalPadding == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.verticalPadding!
+          ? _value.verticalPadding
           // ignore: cast_nullable_to_non_nullable
           : verticalPadding as double,
       itemSpacing:
           itemSpacing == const $CopyWithPlaceholder() || itemSpacing == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.itemSpacing!
+              ? _value.itemSpacing
               // ignore: cast_nullable_to_non_nullable
               : itemSpacing as double,
       layoutGrids:
           layoutGrids == const $CopyWithPlaceholder() || layoutGrids == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.layoutGrids!
+              ? _value.layoutGrids
               // ignore: cast_nullable_to_non_nullable
               : layoutGrids as List<LayoutGrid>,
       overflowDirection: overflowDirection == const $CopyWithPlaceholder() ||
               overflowDirection == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.overflowDirection!
+          ? _value.overflowDirection
           // ignore: cast_nullable_to_non_nullable
           : overflowDirection as OverflowDirection,
       effects: effects == const $CopyWithPlaceholder() || effects == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.effects!
+          ? _value.effects
           // ignore: cast_nullable_to_non_nullable
           : effects as List<Effect>,
       isMask: isMask == const $CopyWithPlaceholder() || isMask == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.isMask!
+          ? _value.isMask
           // ignore: cast_nullable_to_non_nullable
           : isMask as bool,
       isMaskOutline:
           isMaskOutline == const $CopyWithPlaceholder() || isMaskOutline == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.isMaskOutline!
+              ? _value.isMaskOutline
               // ignore: cast_nullable_to_non_nullable
               : isMaskOutline as bool,
       layoutPositioning: layoutPositioning == const $CopyWithPlaceholder() ||
               layoutPositioning == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.layoutPositioning!
+          ? _value.layoutPositioning
           // ignore: cast_nullable_to_non_nullable
           : layoutPositioning as LayoutPositioning,
       itemReverseZIndex: itemReverseZIndex == const $CopyWithPlaceholder() ||
               itemReverseZIndex == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.itemReverseZIndex!
+          ? _value.itemReverseZIndex
           // ignore: cast_nullable_to_non_nullable
           : itemReverseZIndex as bool,
       strokesIncludedInLayout:
           strokesIncludedInLayout == const $CopyWithPlaceholder() ||
                   strokesIncludedInLayout == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.strokesIncludedInLayout!
+              ? _value.strokesIncludedInLayout
               // ignore: cast_nullable_to_non_nullable
               : strokesIncludedInLayout as bool,
       componentPropertyDefinitions:
           componentPropertyDefinitions == const $CopyWithPlaceholder() ||
                   componentPropertyDefinitions == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.componentPropertyDefinitions!
+              ? _value.componentPropertyDefinitions
               // ignore: cast_nullable_to_non_nullable
               : componentPropertyDefinitions
                   as Map<String, ComponentPropertyDefinition>,
-      styles: styles == const $CopyWithPlaceholder()
-          ? _value.styles
-          // ignore: cast_nullable_to_non_nullable
-          : styles as Map<StyleTypeKey, String>?,
     );
   }
 }
@@ -453,6 +432,9 @@ ComponentNode _$ComponentNodeFromJson(Map<String, dynamic> json) =>
               ?.map((e) => Paint.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
+      styles: (json['styles'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry($enumDecode(_$StyleTypeKeyEnumMap, k), e as String),
+      ),
       strokes: (json['strokes'] as List<dynamic>?)
               ?.map((e) => Paint.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -511,16 +493,14 @@ ComponentNode _$ComponentNodeFromJson(Map<String, dynamic> json) =>
                         e as Map<String, dynamic>)),
               ) ??
               {},
-      styles: (json['styles'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry($enumDecode(_$StyleTypeKeyEnumMap, k), e as String),
-      ),
     );
 
 Map<String, dynamic> _$ComponentNodeToJson(ComponentNode instance) =>
     <String, dynamic>{
       'id': instance.id,
       'visible': instance.visible,
-      'children': instance.children,
+      'children':
+          instance.children?.map(const NodeJsonConverter().toJson).toList(),
       'locked': instance.locked,
       'fills': instance.fills,
       'strokes': instance.strokes,
@@ -551,10 +531,20 @@ Map<String, dynamic> _$ComponentNodeToJson(ComponentNode instance) =>
       'effects': instance.effects,
       'isMask': instance.isMask,
       'isMaskOutline': instance.isMaskOutline,
-      'componentPropertyDefinitions': instance.componentPropertyDefinitions,
       'styles': instance.styles
           ?.map((k, e) => MapEntry(_$StyleTypeKeyEnumMap[k]!, e)),
+      'componentPropertyDefinitions': instance.componentPropertyDefinitions,
     };
+
+const _$StyleTypeKeyEnumMap = {
+  StyleTypeKey.fill: 'fill',
+  StyleTypeKey.fills: 'fills',
+  StyleTypeKey.stroke: 'stroke',
+  StyleTypeKey.strokes: 'strokes',
+  StyleTypeKey.text: 'text',
+  StyleTypeKey.effect: 'effect',
+  StyleTypeKey.grid: 'grid',
+};
 
 const _$PrimaryAxisAlignItemsEnumMap = {
   PrimaryAxisAlignItems.min: 'MIN',
@@ -590,14 +580,4 @@ const _$OverflowDirectionEnumMap = {
 const _$LayoutPositioningEnumMap = {
   LayoutPositioning.auto: 'AUTO',
   LayoutPositioning.absolute: 'ABSOLUTE',
-};
-
-const _$StyleTypeKeyEnumMap = {
-  StyleTypeKey.fill: 'fill',
-  StyleTypeKey.fills: 'fills',
-  StyleTypeKey.stroke: 'stroke',
-  StyleTypeKey.strokes: 'strokes',
-  StyleTypeKey.text: 'text',
-  StyleTypeKey.effect: 'effect',
-  StyleTypeKey.grid: 'grid',
 };

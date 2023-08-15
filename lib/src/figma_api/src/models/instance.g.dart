@@ -19,7 +19,7 @@ abstract class _$InstanceCWProxy {
 
   Instance exportSettings(List<ExportSetting> exportSettings);
 
-  Instance children(List<Node> children);
+  Instance children(List<Node?>? children);
 
   Instance opacity(double opacity);
 
@@ -62,6 +62,13 @@ abstract class _$InstanceCWProxy {
   Instance paddingTop(double paddingTop);
 
   Instance size(Vector2D? size);
+
+  Instance isExposedInstance(bool isExposedInstance);
+
+  Instance exposedInstances(List<String> exposedInstances);
+
+  Instance componentProperties(
+      Map<String, ComponentProperty> componentProperties);
 
   Instance styles(Map<StyleTypeKey, String>? styles);
 
@@ -110,13 +117,6 @@ abstract class _$InstanceCWProxy {
 
   Instance individualStrokeWeights(StrokeWeights? individualStrokeWeights);
 
-  Instance isExposedInstance(bool isExposedInstance);
-
-  Instance exposedInstances(List<String> exposedInstances);
-
-  Instance componentProperties(
-      Map<String, ComponentProperty> componentProperties);
-
   Instance componentId(String? componentId);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Instance(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
@@ -132,7 +132,7 @@ abstract class _$InstanceCWProxy {
     List<Paint>? fills,
     List<Paint>? strokes,
     List<ExportSetting>? exportSettings,
-    List<Node>? children,
+    List<Node?>? children,
     double? opacity,
     LayoutPositioning? layoutPositioning,
     bool? itemReverseZIndex,
@@ -154,6 +154,9 @@ abstract class _$InstanceCWProxy {
     double? paddingRight,
     double? paddingTop,
     Vector2D? size,
+    bool? isExposedInstance,
+    List<String>? exposedInstances,
+    Map<String, ComponentProperty>? componentProperties,
     Map<StyleTypeKey, String>? styles,
     Map<String, String>? componentPropertyReferencesMap,
     SizeRectangle? absoluteBoundingBox,
@@ -177,9 +180,6 @@ abstract class _$InstanceCWProxy {
     bool? clipsContent,
     LayoutMode? layoutMode,
     StrokeWeights? individualStrokeWeights,
-    bool? isExposedInstance,
-    List<String>? exposedInstances,
-    Map<String, ComponentProperty>? componentProperties,
     String? componentId,
   });
 }
@@ -210,7 +210,7 @@ class _$InstanceCWProxyImpl implements _$InstanceCWProxy {
       this(exportSettings: exportSettings);
 
   @override
-  Instance children(List<Node> children) => this(children: children);
+  Instance children(List<Node?>? children) => this(children: children);
 
   @override
   Instance opacity(double opacity) => this(opacity: opacity);
@@ -288,6 +288,19 @@ class _$InstanceCWProxyImpl implements _$InstanceCWProxy {
 
   @override
   Instance size(Vector2D? size) => this(size: size);
+
+  @override
+  Instance isExposedInstance(bool isExposedInstance) =>
+      this(isExposedInstance: isExposedInstance);
+
+  @override
+  Instance exposedInstances(List<String> exposedInstances) =>
+      this(exposedInstances: exposedInstances);
+
+  @override
+  Instance componentProperties(
+          Map<String, ComponentProperty> componentProperties) =>
+      this(componentProperties: componentProperties);
 
   @override
   Instance styles(Map<StyleTypeKey, String>? styles) => this(styles: styles);
@@ -375,19 +388,6 @@ class _$InstanceCWProxyImpl implements _$InstanceCWProxy {
       this(individualStrokeWeights: individualStrokeWeights);
 
   @override
-  Instance isExposedInstance(bool isExposedInstance) =>
-      this(isExposedInstance: isExposedInstance);
-
-  @override
-  Instance exposedInstances(List<String> exposedInstances) =>
-      this(exposedInstances: exposedInstances);
-
-  @override
-  Instance componentProperties(
-          Map<String, ComponentProperty> componentProperties) =>
-      this(componentProperties: componentProperties);
-
-  @override
   Instance componentId(String? componentId) => this(componentId: componentId);
 
   @override
@@ -427,6 +427,9 @@ class _$InstanceCWProxyImpl implements _$InstanceCWProxy {
     Object? paddingRight = const $CopyWithPlaceholder(),
     Object? paddingTop = const $CopyWithPlaceholder(),
     Object? size = const $CopyWithPlaceholder(),
+    Object? isExposedInstance = const $CopyWithPlaceholder(),
+    Object? exposedInstances = const $CopyWithPlaceholder(),
+    Object? componentProperties = const $CopyWithPlaceholder(),
     Object? styles = const $CopyWithPlaceholder(),
     Object? componentPropertyReferencesMap = const $CopyWithPlaceholder(),
     Object? absoluteBoundingBox = const $CopyWithPlaceholder(),
@@ -450,174 +453,160 @@ class _$InstanceCWProxyImpl implements _$InstanceCWProxy {
     Object? clipsContent = const $CopyWithPlaceholder(),
     Object? layoutMode = const $CopyWithPlaceholder(),
     Object? individualStrokeWeights = const $CopyWithPlaceholder(),
-    Object? isExposedInstance = const $CopyWithPlaceholder(),
-    Object? exposedInstances = const $CopyWithPlaceholder(),
-    Object? componentProperties = const $CopyWithPlaceholder(),
     Object? componentId = const $CopyWithPlaceholder(),
   }) {
     return Instance(
       id: id == const $CopyWithPlaceholder() || id == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.id!
+          ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String,
       visible: visible == const $CopyWithPlaceholder() || visible == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.visible!
+          ? _value.visible
           // ignore: cast_nullable_to_non_nullable
           : visible as bool,
       locked: locked == const $CopyWithPlaceholder() || locked == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.locked!
+          ? _value.locked
           // ignore: cast_nullable_to_non_nullable
           : locked as bool,
       fills: fills == const $CopyWithPlaceholder() || fills == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.fills!
+          ? _value.fills
           // ignore: cast_nullable_to_non_nullable
           : fills as List<Paint>,
       strokes: strokes == const $CopyWithPlaceholder() || strokes == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.strokes!
+          ? _value.strokes
           // ignore: cast_nullable_to_non_nullable
           : strokes as List<Paint>,
       exportSettings: exportSettings == const $CopyWithPlaceholder() ||
               exportSettings == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.exportSettings!
+          ? _value.exportSettings
           // ignore: cast_nullable_to_non_nullable
           : exportSettings as List<ExportSetting>,
-      children: children == const $CopyWithPlaceholder() || children == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.children!
+      children: children == const $CopyWithPlaceholder()
+          ? _value.children
           // ignore: cast_nullable_to_non_nullable
-          : children as List<Node>,
+          : children as List<Node?>?,
       opacity: opacity == const $CopyWithPlaceholder() || opacity == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.opacity!
+          ? _value.opacity
           // ignore: cast_nullable_to_non_nullable
           : opacity as double,
       layoutPositioning: layoutPositioning == const $CopyWithPlaceholder() ||
               layoutPositioning == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.layoutPositioning!
+          ? _value.layoutPositioning
           // ignore: cast_nullable_to_non_nullable
           : layoutPositioning as LayoutPositioning,
       itemReverseZIndex: itemReverseZIndex == const $CopyWithPlaceholder() ||
               itemReverseZIndex == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.itemReverseZIndex!
+          ? _value.itemReverseZIndex
           // ignore: cast_nullable_to_non_nullable
           : itemReverseZIndex as bool,
       strokesIncludedInLayout:
           strokesIncludedInLayout == const $CopyWithPlaceholder() ||
                   strokesIncludedInLayout == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.strokesIncludedInLayout!
+              ? _value.strokesIncludedInLayout
               // ignore: cast_nullable_to_non_nullable
               : strokesIncludedInLayout as bool,
       counterAxisSizingMode:
           counterAxisSizingMode == const $CopyWithPlaceholder() ||
                   counterAxisSizingMode == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.counterAxisSizingMode!
+              ? _value.counterAxisSizingMode
               // ignore: cast_nullable_to_non_nullable
               : counterAxisSizingMode as CounterAxisSizingMode,
       horizontalPadding: horizontalPadding == const $CopyWithPlaceholder() ||
               horizontalPadding == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.horizontalPadding!
+          ? _value.horizontalPadding
           // ignore: cast_nullable_to_non_nullable
           : horizontalPadding as double,
       verticalPadding: verticalPadding == const $CopyWithPlaceholder() ||
               verticalPadding == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.verticalPadding!
+          ? _value.verticalPadding
           // ignore: cast_nullable_to_non_nullable
           : verticalPadding as double,
       itemSpacing:
           itemSpacing == const $CopyWithPlaceholder() || itemSpacing == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.itemSpacing!
+              ? _value.itemSpacing
               // ignore: cast_nullable_to_non_nullable
               : itemSpacing as double,
       layoutGrids:
           layoutGrids == const $CopyWithPlaceholder() || layoutGrids == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.layoutGrids!
+              ? _value.layoutGrids
               // ignore: cast_nullable_to_non_nullable
               : layoutGrids as List<LayoutGrid>,
       overflowDirection: overflowDirection == const $CopyWithPlaceholder() ||
               overflowDirection == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.overflowDirection!
+          ? _value.overflowDirection
           // ignore: cast_nullable_to_non_nullable
           : overflowDirection as OverflowDirection,
       effects: effects == const $CopyWithPlaceholder() || effects == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.effects!
+          ? _value.effects
           // ignore: cast_nullable_to_non_nullable
           : effects as List<Effect>,
       isMask: isMask == const $CopyWithPlaceholder() || isMask == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.isMask!
+          ? _value.isMask
           // ignore: cast_nullable_to_non_nullable
           : isMask as bool,
       isMaskOutline:
           isMaskOutline == const $CopyWithPlaceholder() || isMaskOutline == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.isMaskOutline!
+              ? _value.isMaskOutline
               // ignore: cast_nullable_to_non_nullable
               : isMaskOutline as bool,
       counterAxisAlignItems:
           counterAxisAlignItems == const $CopyWithPlaceholder() ||
                   counterAxisAlignItems == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.counterAxisAlignItems!
+              ? _value.counterAxisAlignItems
               // ignore: cast_nullable_to_non_nullable
               : counterAxisAlignItems as CounterAxisAlignItems,
       primaryAxisAlignItems:
           primaryAxisAlignItems == const $CopyWithPlaceholder() ||
                   primaryAxisAlignItems == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.primaryAxisAlignItems!
+              ? _value.primaryAxisAlignItems
               // ignore: cast_nullable_to_non_nullable
               : primaryAxisAlignItems as PrimaryAxisAlignItems,
       primaryAxisSizingMode:
           primaryAxisSizingMode == const $CopyWithPlaceholder() ||
                   primaryAxisSizingMode == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.primaryAxisSizingMode!
+              ? _value.primaryAxisSizingMode
               // ignore: cast_nullable_to_non_nullable
               : primaryAxisSizingMode as PrimaryAxisSizingMode,
       paddingBottom:
           paddingBottom == const $CopyWithPlaceholder() || paddingBottom == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.paddingBottom!
+              ? _value.paddingBottom
               // ignore: cast_nullable_to_non_nullable
               : paddingBottom as double,
       paddingLeft:
           paddingLeft == const $CopyWithPlaceholder() || paddingLeft == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.paddingLeft!
+              ? _value.paddingLeft
               // ignore: cast_nullable_to_non_nullable
               : paddingLeft as double,
       paddingRight:
           paddingRight == const $CopyWithPlaceholder() || paddingRight == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.paddingRight!
+              ? _value.paddingRight
               // ignore: cast_nullable_to_non_nullable
               : paddingRight as double,
       paddingTop:
           paddingTop == const $CopyWithPlaceholder() || paddingTop == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.paddingTop!
+              ? _value.paddingTop
               // ignore: cast_nullable_to_non_nullable
               : paddingTop as double,
       size: size == const $CopyWithPlaceholder()
           ? _value.size
           // ignore: cast_nullable_to_non_nullable
           : size as Vector2D?,
+      isExposedInstance: isExposedInstance == const $CopyWithPlaceholder() ||
+              isExposedInstance == null
+          ? _value.isExposedInstance
+          // ignore: cast_nullable_to_non_nullable
+          : isExposedInstance as bool,
+      exposedInstances: exposedInstances == const $CopyWithPlaceholder() ||
+              exposedInstances == null
+          ? _value.exposedInstances
+          // ignore: cast_nullable_to_non_nullable
+          : exposedInstances as List<String>,
+      componentProperties:
+          componentProperties == const $CopyWithPlaceholder() ||
+                  componentProperties == null
+              ? _value.componentProperties
+              // ignore: cast_nullable_to_non_nullable
+              : componentProperties as Map<String, ComponentProperty>,
       styles: styles == const $CopyWithPlaceholder()
           ? _value.styles
           // ignore: cast_nullable_to_non_nullable
@@ -645,14 +634,12 @@ class _$InstanceCWProxyImpl implements _$InstanceCWProxy {
           : name as String?,
       pluginData:
           pluginData == const $CopyWithPlaceholder() || pluginData == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.pluginData!
+              ? _value.pluginData
               // ignore: cast_nullable_to_non_nullable
               : pluginData as dynamic,
       sharedPluginData: sharedPluginData == const $CopyWithPlaceholder() ||
               sharedPluginData == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.sharedPluginData!
+          ? _value.sharedPluginData
           // ignore: cast_nullable_to_non_nullable
           : sharedPluginData as dynamic,
       type: type == const $CopyWithPlaceholder()
@@ -716,25 +703,6 @@ class _$InstanceCWProxyImpl implements _$InstanceCWProxy {
               ? _value.individualStrokeWeights
               // ignore: cast_nullable_to_non_nullable
               : individualStrokeWeights as StrokeWeights?,
-      isExposedInstance: isExposedInstance == const $CopyWithPlaceholder() ||
-              isExposedInstance == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.isExposedInstance!
-          // ignore: cast_nullable_to_non_nullable
-          : isExposedInstance as bool,
-      exposedInstances: exposedInstances == const $CopyWithPlaceholder() ||
-              exposedInstances == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.exposedInstances!
-          // ignore: cast_nullable_to_non_nullable
-          : exposedInstances as List<String>,
-      componentProperties:
-          componentProperties == const $CopyWithPlaceholder() ||
-                  componentProperties == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.componentProperties!
-              // ignore: cast_nullable_to_non_nullable
-              : componentProperties as Map<String, ComponentProperty>,
       componentId: componentId == const $CopyWithPlaceholder()
           ? _value.componentId
           // ignore: cast_nullable_to_non_nullable
@@ -769,8 +737,8 @@ Instance _$InstanceFromJson(Map<String, dynamic> json) => Instance(
               ?.map((e) => ExportSetting.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
-      children: (json['children'] as List<dynamic>)
-          .map((e) => Node.fromJson(e as Map<String, dynamic>))
+      children: (json['children'] as List<dynamic>?)
+          ?.map(const NodeJsonConverter().fromJson)
           .toList(),
       opacity: (json['opacity'] as num?)?.toDouble() ?? 1.0,
       layoutPositioning: $enumDecodeNullable(
@@ -814,6 +782,17 @@ Instance _$InstanceFromJson(Map<String, dynamic> json) => Instance(
       size: json['size'] == null
           ? null
           : Vector2D.fromJson(json['size'] as Map<String, dynamic>),
+      isExposedInstance: json['isExposedInstance'] as bool? ?? false,
+      exposedInstances: (json['exposedInstances'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      componentProperties:
+          (json['componentProperties'] as Map<String, dynamic>?)?.map(
+                (k, e) => MapEntry(
+                    k, ComponentProperty.fromJson(e as Map<String, dynamic>)),
+              ) ??
+              {},
       styles: (json['styles'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry($enumDecode(_$StyleTypeKeyEnumMap, k), e as String),
       ),
@@ -864,17 +843,6 @@ Instance _$InstanceFromJson(Map<String, dynamic> json) => Instance(
           ? null
           : StrokeWeights.fromJson(
               json['individualStrokeWeights'] as Map<String, dynamic>),
-      isExposedInstance: json['isExposedInstance'] as bool? ?? false,
-      exposedInstances: (json['exposedInstances'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          [],
-      componentProperties:
-          (json['componentProperties'] as Map<String, dynamic>?)?.map(
-                (k, e) => MapEntry(
-                    k, ComponentProperty.fromJson(e as Map<String, dynamic>)),
-              ) ??
-              {},
       componentId: json['componentId'] as String?,
     );
 
@@ -887,7 +855,8 @@ Map<String, dynamic> _$InstanceToJson(Instance instance) => <String, dynamic>{
       'sharedPluginData': instance.sharedPluginData,
       'rotation': instance.rotation,
       'componentPropertyReferencesMap': instance.componentPropertyReferencesMap,
-      'children': instance.children,
+      'children':
+          instance.children?.map(const NodeJsonConverter().toJson).toList(),
       'locked': instance.locked,
       'fills': instance.fills,
       'strokes': instance.strokes,

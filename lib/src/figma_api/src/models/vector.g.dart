@@ -11,17 +11,6 @@ abstract class _$VectorCWProxy {
 
   Vector visible(bool visible);
 
-  Vector componentPropertyReferencesMap(
-      Map<String, String>? componentPropertyReferencesMap);
-
-  Vector name(String? name);
-
-  Vector rotation(double? rotation);
-
-  Vector pluginData(dynamic pluginData);
-
-  Vector sharedPluginData(dynamic sharedPluginData);
-
   Vector locked(bool locked);
 
   Vector exportSettings(List<ExportSetting> exportSettings);
@@ -47,6 +36,17 @@ abstract class _$VectorCWProxy {
   Vector fillGeometry(List<Path> fillGeometry);
 
   Vector strokes(List<Paint> strokes);
+
+  Vector componentPropertyReferencesMap(
+      Map<String, String>? componentPropertyReferencesMap);
+
+  Vector name(String? name);
+
+  Vector rotation(double? rotation);
+
+  Vector pluginData(dynamic pluginData);
+
+  Vector sharedPluginData(dynamic sharedPluginData);
 
   Vector blendMode(BlendMode? blendMode);
 
@@ -91,11 +91,6 @@ abstract class _$VectorCWProxy {
   Vector call({
     String? id,
     bool? visible,
-    Map<String, String>? componentPropertyReferencesMap,
-    String? name,
-    double? rotation,
-    dynamic pluginData,
-    dynamic sharedPluginData,
     bool? locked,
     List<ExportSetting>? exportSettings,
     bool? preserveRatio,
@@ -109,6 +104,11 @@ abstract class _$VectorCWProxy {
     List<Paint>? fills,
     List<Path>? fillGeometry,
     List<Paint>? strokes,
+    Map<String, String>? componentPropertyReferencesMap,
+    String? name,
+    double? rotation,
+    dynamic pluginData,
+    dynamic sharedPluginData,
     BlendMode? blendMode,
     LayoutAlign? layoutAlign,
     LayoutConstraint? constraints,
@@ -140,24 +140,6 @@ class _$VectorCWProxyImpl implements _$VectorCWProxy {
 
   @override
   Vector visible(bool visible) => this(visible: visible);
-
-  @override
-  Vector componentPropertyReferencesMap(
-          Map<String, String>? componentPropertyReferencesMap) =>
-      this(componentPropertyReferencesMap: componentPropertyReferencesMap);
-
-  @override
-  Vector name(String? name) => this(name: name);
-
-  @override
-  Vector rotation(double? rotation) => this(rotation: rotation);
-
-  @override
-  Vector pluginData(dynamic pluginData) => this(pluginData: pluginData);
-
-  @override
-  Vector sharedPluginData(dynamic sharedPluginData) =>
-      this(sharedPluginData: sharedPluginData);
 
   @override
   Vector locked(bool locked) => this(locked: locked);
@@ -202,6 +184,24 @@ class _$VectorCWProxyImpl implements _$VectorCWProxy {
 
   @override
   Vector strokes(List<Paint> strokes) => this(strokes: strokes);
+
+  @override
+  Vector componentPropertyReferencesMap(
+          Map<String, String>? componentPropertyReferencesMap) =>
+      this(componentPropertyReferencesMap: componentPropertyReferencesMap);
+
+  @override
+  Vector name(String? name) => this(name: name);
+
+  @override
+  Vector rotation(double? rotation) => this(rotation: rotation);
+
+  @override
+  Vector pluginData(dynamic pluginData) => this(pluginData: pluginData);
+
+  @override
+  Vector sharedPluginData(dynamic sharedPluginData) =>
+      this(sharedPluginData: sharedPluginData);
 
   @override
   Vector blendMode(BlendMode? blendMode) => this(blendMode: blendMode);
@@ -277,11 +277,6 @@ class _$VectorCWProxyImpl implements _$VectorCWProxy {
   Vector call({
     Object? id = const $CopyWithPlaceholder(),
     Object? visible = const $CopyWithPlaceholder(),
-    Object? componentPropertyReferencesMap = const $CopyWithPlaceholder(),
-    Object? name = const $CopyWithPlaceholder(),
-    Object? rotation = const $CopyWithPlaceholder(),
-    Object? pluginData = const $CopyWithPlaceholder(),
-    Object? sharedPluginData = const $CopyWithPlaceholder(),
     Object? locked = const $CopyWithPlaceholder(),
     Object? exportSettings = const $CopyWithPlaceholder(),
     Object? preserveRatio = const $CopyWithPlaceholder(),
@@ -295,6 +290,11 @@ class _$VectorCWProxyImpl implements _$VectorCWProxy {
     Object? fills = const $CopyWithPlaceholder(),
     Object? fillGeometry = const $CopyWithPlaceholder(),
     Object? strokes = const $CopyWithPlaceholder(),
+    Object? componentPropertyReferencesMap = const $CopyWithPlaceholder(),
+    Object? name = const $CopyWithPlaceholder(),
+    Object? rotation = const $CopyWithPlaceholder(),
+    Object? pluginData = const $CopyWithPlaceholder(),
+    Object? sharedPluginData = const $CopyWithPlaceholder(),
     Object? blendMode = const $CopyWithPlaceholder(),
     Object? layoutAlign = const $CopyWithPlaceholder(),
     Object? constraints = const $CopyWithPlaceholder(),
@@ -315,15 +315,72 @@ class _$VectorCWProxyImpl implements _$VectorCWProxy {
   }) {
     return Vector(
       id: id == const $CopyWithPlaceholder() || id == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.id!
+          ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String,
       visible: visible == const $CopyWithPlaceholder() || visible == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.visible!
+          ? _value.visible
           // ignore: cast_nullable_to_non_nullable
           : visible as bool,
+      locked: locked == const $CopyWithPlaceholder() || locked == null
+          ? _value.locked
+          // ignore: cast_nullable_to_non_nullable
+          : locked as bool,
+      exportSettings: exportSettings == const $CopyWithPlaceholder() ||
+              exportSettings == null
+          ? _value.exportSettings
+          // ignore: cast_nullable_to_non_nullable
+          : exportSettings as List<ExportSetting>,
+      preserveRatio:
+          preserveRatio == const $CopyWithPlaceholder() || preserveRatio == null
+              ? _value.preserveRatio
+              // ignore: cast_nullable_to_non_nullable
+              : preserveRatio as bool,
+      layoutGrow:
+          layoutGrow == const $CopyWithPlaceholder() || layoutGrow == null
+              ? _value.layoutGrow
+              // ignore: cast_nullable_to_non_nullable
+              : layoutGrow as double,
+      strokeCap: strokeCap == const $CopyWithPlaceholder() || strokeCap == null
+          ? _value.strokeCap
+          // ignore: cast_nullable_to_non_nullable
+          : strokeCap as StrokeCap,
+      strokeJoin:
+          strokeJoin == const $CopyWithPlaceholder() || strokeJoin == null
+              ? _value.strokeJoin
+              // ignore: cast_nullable_to_non_nullable
+              : strokeJoin as StrokeJoin,
+      strokeDashes:
+          strokeDashes == const $CopyWithPlaceholder() || strokeDashes == null
+              ? _value.strokeDashes
+              // ignore: cast_nullable_to_non_nullable
+              : strokeDashes as List<double>,
+      strokeMiterAngle: strokeMiterAngle == const $CopyWithPlaceholder() ||
+              strokeMiterAngle == null
+          ? _value.strokeMiterAngle
+          // ignore: cast_nullable_to_non_nullable
+          : strokeMiterAngle as double,
+      opacity: opacity == const $CopyWithPlaceholder() || opacity == null
+          ? _value.opacity
+          // ignore: cast_nullable_to_non_nullable
+          : opacity as double,
+      isMask: isMask == const $CopyWithPlaceholder() || isMask == null
+          ? _value.isMask
+          // ignore: cast_nullable_to_non_nullable
+          : isMask as bool,
+      fills: fills == const $CopyWithPlaceholder() || fills == null
+          ? _value.fills
+          // ignore: cast_nullable_to_non_nullable
+          : fills as List<Paint>,
+      fillGeometry:
+          fillGeometry == const $CopyWithPlaceholder() || fillGeometry == null
+              ? _value.fillGeometry
+              // ignore: cast_nullable_to_non_nullable
+              : fillGeometry as List<Path>,
+      strokes: strokes == const $CopyWithPlaceholder() || strokes == null
+          ? _value.strokes
+          // ignore: cast_nullable_to_non_nullable
+          : strokes as List<Paint>,
       componentPropertyReferencesMap:
           componentPropertyReferencesMap == const $CopyWithPlaceholder()
               ? _value.componentPropertyReferencesMap
@@ -339,88 +396,14 @@ class _$VectorCWProxyImpl implements _$VectorCWProxy {
           : rotation as double?,
       pluginData:
           pluginData == const $CopyWithPlaceholder() || pluginData == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.pluginData!
+              ? _value.pluginData
               // ignore: cast_nullable_to_non_nullable
               : pluginData as dynamic,
       sharedPluginData: sharedPluginData == const $CopyWithPlaceholder() ||
               sharedPluginData == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.sharedPluginData!
+          ? _value.sharedPluginData
           // ignore: cast_nullable_to_non_nullable
           : sharedPluginData as dynamic,
-      locked: locked == const $CopyWithPlaceholder() || locked == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.locked!
-          // ignore: cast_nullable_to_non_nullable
-          : locked as bool,
-      exportSettings: exportSettings == const $CopyWithPlaceholder() ||
-              exportSettings == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.exportSettings!
-          // ignore: cast_nullable_to_non_nullable
-          : exportSettings as List<ExportSetting>,
-      preserveRatio:
-          preserveRatio == const $CopyWithPlaceholder() || preserveRatio == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.preserveRatio!
-              // ignore: cast_nullable_to_non_nullable
-              : preserveRatio as bool,
-      layoutGrow:
-          layoutGrow == const $CopyWithPlaceholder() || layoutGrow == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.layoutGrow!
-              // ignore: cast_nullable_to_non_nullable
-              : layoutGrow as double,
-      strokeCap: strokeCap == const $CopyWithPlaceholder() || strokeCap == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.strokeCap!
-          // ignore: cast_nullable_to_non_nullable
-          : strokeCap as StrokeCap,
-      strokeJoin:
-          strokeJoin == const $CopyWithPlaceholder() || strokeJoin == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.strokeJoin!
-              // ignore: cast_nullable_to_non_nullable
-              : strokeJoin as StrokeJoin,
-      strokeDashes:
-          strokeDashes == const $CopyWithPlaceholder() || strokeDashes == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.strokeDashes!
-              // ignore: cast_nullable_to_non_nullable
-              : strokeDashes as List<double>,
-      strokeMiterAngle: strokeMiterAngle == const $CopyWithPlaceholder() ||
-              strokeMiterAngle == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.strokeMiterAngle!
-          // ignore: cast_nullable_to_non_nullable
-          : strokeMiterAngle as double,
-      opacity: opacity == const $CopyWithPlaceholder() || opacity == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.opacity!
-          // ignore: cast_nullable_to_non_nullable
-          : opacity as double,
-      isMask: isMask == const $CopyWithPlaceholder() || isMask == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.isMask!
-          // ignore: cast_nullable_to_non_nullable
-          : isMask as bool,
-      fills: fills == const $CopyWithPlaceholder() || fills == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.fills!
-          // ignore: cast_nullable_to_non_nullable
-          : fills as List<Paint>,
-      fillGeometry:
-          fillGeometry == const $CopyWithPlaceholder() || fillGeometry == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.fillGeometry!
-              // ignore: cast_nullable_to_non_nullable
-              : fillGeometry as List<Path>,
-      strokes: strokes == const $CopyWithPlaceholder() || strokes == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.strokes!
-          // ignore: cast_nullable_to_non_nullable
-          : strokes as List<Paint>,
       blendMode: blendMode == const $CopyWithPlaceholder()
           ? _value.blendMode
           // ignore: cast_nullable_to_non_nullable
@@ -507,15 +490,6 @@ extension $VectorCopyWith on Vector {
 Vector _$VectorFromJson(Map<String, dynamic> json) => Vector(
       id: json['id'] as String,
       visible: json['visible'] as bool? ?? true,
-      componentPropertyReferencesMap:
-          (json['componentPropertyReferencesMap'] as Map<String, dynamic>?)
-              ?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      name: json['name'] as String?,
-      rotation: (json['rotation'] as num?)?.toDouble(),
-      pluginData: json['pluginData'],
-      sharedPluginData: json['sharedPluginData'],
       locked: json['locked'] as bool? ?? false,
       exportSettings: (json['exportSettings'] as List<dynamic>?)
               ?.map((e) => ExportSetting.fromJson(e as Map<String, dynamic>))
@@ -547,6 +521,15 @@ Vector _$VectorFromJson(Map<String, dynamic> json) => Vector(
               ?.map((e) => Paint.fromJson(e as Map<String, dynamic>))
               .toList() ??
           [],
+      componentPropertyReferencesMap:
+          (json['componentPropertyReferencesMap'] as Map<String, dynamic>?)
+              ?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
+      name: json['name'] as String?,
+      rotation: (json['rotation'] as num?)?.toDouble(),
+      pluginData: json['pluginData'],
+      sharedPluginData: json['sharedPluginData'],
       blendMode: $enumDecodeNullable(_$BlendModeEnumMap, json['blendMode']),
       layoutAlign:
           $enumDecodeNullable(_$LayoutAlignEnumMap, json['layoutAlign']),
@@ -587,6 +570,11 @@ Vector _$VectorFromJson(Map<String, dynamic> json) => Vector(
           ? null
           : SizeRectangle.fromJson(
               json['absoluteRenderBounds'] as Map<String, dynamic>),
+      fillOverrideTable:
+          (json['fillOverrideTable'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(
+            int.parse(k), PaintOverride.fromJson(e as Map<String, dynamic>)),
+      ),
     );
 
 Map<String, dynamic> _$VectorToJson(Vector instance) => <String, dynamic>{

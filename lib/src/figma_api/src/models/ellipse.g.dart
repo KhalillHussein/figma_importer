@@ -37,6 +37,8 @@ abstract class _$EllipseCWProxy {
 
   Ellipse strokeMiterAngle(double strokeMiterAngle);
 
+  Ellipse arcData(ArcData arcData);
+
   Ellipse componentPropertyReferencesMap(
       Map<String, String>? componentPropertyReferencesMap);
 
@@ -82,8 +84,6 @@ abstract class _$EllipseCWProxy {
 
   Ellipse individualStrokeWeights(StrokeWeights? individualStrokeWeights);
 
-  Ellipse arcData(ArcData arcData);
-
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Ellipse(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -106,6 +106,7 @@ abstract class _$EllipseCWProxy {
     StrokeJoin? strokeJoin,
     List<double>? strokeDashes,
     double? strokeMiterAngle,
+    ArcData? arcData,
     Map<String, String>? componentPropertyReferencesMap,
     String? name,
     double? rotation,
@@ -128,7 +129,6 @@ abstract class _$EllipseCWProxy {
     SizeRectangle? absoluteRenderBounds,
     Map<int, PaintOverride>? fillOverrideTable,
     StrokeWeights? individualStrokeWeights,
-    ArcData? arcData,
   });
 }
 
@@ -187,6 +187,9 @@ class _$EllipseCWProxyImpl implements _$EllipseCWProxy {
   @override
   Ellipse strokeMiterAngle(double strokeMiterAngle) =>
       this(strokeMiterAngle: strokeMiterAngle);
+
+  @override
+  Ellipse arcData(ArcData arcData) => this(arcData: arcData);
 
   @override
   Ellipse componentPropertyReferencesMap(
@@ -271,9 +274,6 @@ class _$EllipseCWProxyImpl implements _$EllipseCWProxy {
       this(individualStrokeWeights: individualStrokeWeights);
 
   @override
-  Ellipse arcData(ArcData arcData) => this(arcData: arcData);
-
-  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Ellipse(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -297,6 +297,7 @@ class _$EllipseCWProxyImpl implements _$EllipseCWProxy {
     Object? strokeJoin = const $CopyWithPlaceholder(),
     Object? strokeDashes = const $CopyWithPlaceholder(),
     Object? strokeMiterAngle = const $CopyWithPlaceholder(),
+    Object? arcData = const $CopyWithPlaceholder(),
     Object? componentPropertyReferencesMap = const $CopyWithPlaceholder(),
     Object? name = const $CopyWithPlaceholder(),
     Object? rotation = const $CopyWithPlaceholder(),
@@ -319,91 +320,79 @@ class _$EllipseCWProxyImpl implements _$EllipseCWProxy {
     Object? absoluteRenderBounds = const $CopyWithPlaceholder(),
     Object? fillOverrideTable = const $CopyWithPlaceholder(),
     Object? individualStrokeWeights = const $CopyWithPlaceholder(),
-    Object? arcData = const $CopyWithPlaceholder(),
   }) {
     return Ellipse(
       id: id == const $CopyWithPlaceholder() || id == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.id!
+          ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String,
       visible: visible == const $CopyWithPlaceholder() || visible == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.visible!
+          ? _value.visible
           // ignore: cast_nullable_to_non_nullable
           : visible as bool,
       locked: locked == const $CopyWithPlaceholder() || locked == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.locked!
+          ? _value.locked
           // ignore: cast_nullable_to_non_nullable
           : locked as bool,
       exportSettings: exportSettings == const $CopyWithPlaceholder() ||
               exportSettings == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.exportSettings!
+          ? _value.exportSettings
           // ignore: cast_nullable_to_non_nullable
           : exportSettings as List<ExportSetting>,
       preserveRatio:
           preserveRatio == const $CopyWithPlaceholder() || preserveRatio == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.preserveRatio!
+              ? _value.preserveRatio
               // ignore: cast_nullable_to_non_nullable
               : preserveRatio as bool,
       layoutGrow:
           layoutGrow == const $CopyWithPlaceholder() || layoutGrow == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.layoutGrow!
+              ? _value.layoutGrow
               // ignore: cast_nullable_to_non_nullable
               : layoutGrow as double,
       opacity: opacity == const $CopyWithPlaceholder() || opacity == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.opacity!
+          ? _value.opacity
           // ignore: cast_nullable_to_non_nullable
           : opacity as double,
       isMask: isMask == const $CopyWithPlaceholder() || isMask == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.isMask!
+          ? _value.isMask
           // ignore: cast_nullable_to_non_nullable
           : isMask as bool,
       fills: fills == const $CopyWithPlaceholder() || fills == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.fills!
+          ? _value.fills
           // ignore: cast_nullable_to_non_nullable
           : fills as List<Paint>,
       fillGeometry:
           fillGeometry == const $CopyWithPlaceholder() || fillGeometry == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.fillGeometry!
+              ? _value.fillGeometry
               // ignore: cast_nullable_to_non_nullable
               : fillGeometry as List<Path>,
       strokes: strokes == const $CopyWithPlaceholder() || strokes == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.strokes!
+          ? _value.strokes
           // ignore: cast_nullable_to_non_nullable
           : strokes as List<Paint>,
       strokeCap: strokeCap == const $CopyWithPlaceholder() || strokeCap == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.strokeCap!
+          ? _value.strokeCap
           // ignore: cast_nullable_to_non_nullable
           : strokeCap as StrokeCap,
       strokeJoin:
           strokeJoin == const $CopyWithPlaceholder() || strokeJoin == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.strokeJoin!
+              ? _value.strokeJoin
               // ignore: cast_nullable_to_non_nullable
               : strokeJoin as StrokeJoin,
       strokeDashes:
           strokeDashes == const $CopyWithPlaceholder() || strokeDashes == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.strokeDashes!
+              ? _value.strokeDashes
               // ignore: cast_nullable_to_non_nullable
               : strokeDashes as List<double>,
       strokeMiterAngle: strokeMiterAngle == const $CopyWithPlaceholder() ||
               strokeMiterAngle == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.strokeMiterAngle!
+          ? _value.strokeMiterAngle
           // ignore: cast_nullable_to_non_nullable
           : strokeMiterAngle as double,
+      arcData: arcData == const $CopyWithPlaceholder() || arcData == null
+          ? _value.arcData
+          // ignore: cast_nullable_to_non_nullable
+          : arcData as ArcData,
       componentPropertyReferencesMap:
           componentPropertyReferencesMap == const $CopyWithPlaceholder()
               ? _value.componentPropertyReferencesMap
@@ -419,14 +408,12 @@ class _$EllipseCWProxyImpl implements _$EllipseCWProxy {
           : rotation as double?,
       pluginData:
           pluginData == const $CopyWithPlaceholder() || pluginData == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.pluginData!
+              ? _value.pluginData
               // ignore: cast_nullable_to_non_nullable
               : pluginData as dynamic,
       sharedPluginData: sharedPluginData == const $CopyWithPlaceholder() ||
               sharedPluginData == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.sharedPluginData!
+          ? _value.sharedPluginData
           // ignore: cast_nullable_to_non_nullable
           : sharedPluginData as dynamic,
       blendMode: blendMode == const $CopyWithPlaceholder()
@@ -498,11 +485,6 @@ class _$EllipseCWProxyImpl implements _$EllipseCWProxy {
               ? _value.individualStrokeWeights
               // ignore: cast_nullable_to_non_nullable
               : individualStrokeWeights as StrokeWeights?,
-      arcData: arcData == const $CopyWithPlaceholder() || arcData == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.arcData!
-          // ignore: cast_nullable_to_non_nullable
-          : arcData as ArcData,
     );
   }
 }
@@ -551,6 +533,7 @@ Ellipse _$EllipseFromJson(Map<String, dynamic> json) => Ellipse(
               .toList() ??
           [],
       strokeMiterAngle: (json['strokeMiterAngle'] as num?)?.toDouble() ?? 28.96,
+      arcData: ArcData.fromJson(json['arcData'] as Map<String, dynamic>),
       componentPropertyReferencesMap:
           (json['componentPropertyReferencesMap'] as Map<String, dynamic>?)
               ?.map(
@@ -605,7 +588,6 @@ Ellipse _$EllipseFromJson(Map<String, dynamic> json) => Ellipse(
           ? null
           : StrokeWeights.fromJson(
               json['individualStrokeWeights'] as Map<String, dynamic>),
-      arcData: ArcData.fromJson(json['arcData'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$EllipseToJson(Ellipse instance) => <String, dynamic>{

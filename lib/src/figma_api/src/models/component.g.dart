@@ -164,8 +164,7 @@ class _$ComponentCWProxyImpl implements _$ComponentCWProxy {
           : containingFrame as FrameInfo?,
       containingPage: containingPage == const $CopyWithPlaceholder() ||
               containingPage == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.containingPage!
+          ? _value.containingPage
           // ignore: cast_nullable_to_non_nullable
           : containingPage as dynamic,
       componentSetId: componentSetId == const $CopyWithPlaceholder()

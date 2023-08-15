@@ -9,17 +9,17 @@ part of 'comment.dart';
 abstract class _$CommentCWProxy {
   Comment id(String id);
 
-  Comment clientMeta(dynamic clientMeta);
-
   Comment fileKey(String fileKey);
-
-  Comment parentId(String? parentId);
 
   Comment user(User user);
 
   Comment createdAt(DateTime createdAt);
 
   Comment resolvedAt(DateTime? resolvedAt);
+
+  Comment clientMeta(dynamic clientMeta);
+
+  Comment parentId(String? parentId);
 
   Comment orderId(String? orderId);
 
@@ -31,12 +31,12 @@ abstract class _$CommentCWProxy {
   /// ````
   Comment call({
     String? id,
-    dynamic clientMeta,
     String? fileKey,
-    String? parentId,
     User? user,
     DateTime? createdAt,
     DateTime? resolvedAt,
+    dynamic clientMeta,
+    String? parentId,
     String? orderId,
   });
 }
@@ -51,13 +51,7 @@ class _$CommentCWProxyImpl implements _$CommentCWProxy {
   Comment id(String id) => this(id: id);
 
   @override
-  Comment clientMeta(dynamic clientMeta) => this(clientMeta: clientMeta);
-
-  @override
   Comment fileKey(String fileKey) => this(fileKey: fileKey);
-
-  @override
-  Comment parentId(String? parentId) => this(parentId: parentId);
 
   @override
   Comment user(User user) => this(user: user);
@@ -67,6 +61,12 @@ class _$CommentCWProxyImpl implements _$CommentCWProxy {
 
   @override
   Comment resolvedAt(DateTime? resolvedAt) => this(resolvedAt: resolvedAt);
+
+  @override
+  Comment clientMeta(dynamic clientMeta) => this(clientMeta: clientMeta);
+
+  @override
+  Comment parentId(String? parentId) => this(parentId: parentId);
 
   @override
   Comment orderId(String? orderId) => this(orderId: orderId);
@@ -81,49 +81,44 @@ class _$CommentCWProxyImpl implements _$CommentCWProxy {
   /// ````
   Comment call({
     Object? id = const $CopyWithPlaceholder(),
-    Object? clientMeta = const $CopyWithPlaceholder(),
     Object? fileKey = const $CopyWithPlaceholder(),
-    Object? parentId = const $CopyWithPlaceholder(),
     Object? user = const $CopyWithPlaceholder(),
     Object? createdAt = const $CopyWithPlaceholder(),
     Object? resolvedAt = const $CopyWithPlaceholder(),
+    Object? clientMeta = const $CopyWithPlaceholder(),
+    Object? parentId = const $CopyWithPlaceholder(),
     Object? orderId = const $CopyWithPlaceholder(),
   }) {
     return Comment(
       id: id == const $CopyWithPlaceholder() || id == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.id!
+          ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String,
-      clientMeta:
-          clientMeta == const $CopyWithPlaceholder() || clientMeta == null
-              // ignore: unnecessary_non_null_assertion
-              ? _value.clientMeta!
-              // ignore: cast_nullable_to_non_nullable
-              : clientMeta as dynamic,
       fileKey: fileKey == const $CopyWithPlaceholder() || fileKey == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.fileKey!
+          ? _value.fileKey
           // ignore: cast_nullable_to_non_nullable
           : fileKey as String,
-      parentId: parentId == const $CopyWithPlaceholder()
-          ? _value.parentId
-          // ignore: cast_nullable_to_non_nullable
-          : parentId as String?,
       user: user == const $CopyWithPlaceholder() || user == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.user!
+          ? _value.user
           // ignore: cast_nullable_to_non_nullable
           : user as User,
       createdAt: createdAt == const $CopyWithPlaceholder() || createdAt == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.createdAt!
+          ? _value.createdAt
           // ignore: cast_nullable_to_non_nullable
           : createdAt as DateTime,
       resolvedAt: resolvedAt == const $CopyWithPlaceholder()
           ? _value.resolvedAt
           // ignore: cast_nullable_to_non_nullable
           : resolvedAt as DateTime?,
+      clientMeta:
+          clientMeta == const $CopyWithPlaceholder() || clientMeta == null
+              ? _value.clientMeta
+              // ignore: cast_nullable_to_non_nullable
+              : clientMeta as dynamic,
+      parentId: parentId == const $CopyWithPlaceholder()
+          ? _value.parentId
+          // ignore: cast_nullable_to_non_nullable
+          : parentId as String?,
       orderId: orderId == const $CopyWithPlaceholder()
           ? _value.orderId
           // ignore: cast_nullable_to_non_nullable
@@ -144,14 +139,14 @@ extension $CommentCopyWith on Comment {
 
 Comment _$CommentFromJson(Map<String, dynamic> json) => Comment(
       id: json['id'] as String,
-      clientMeta: json['client_meta'],
       fileKey: json['file_key'] as String,
-      parentId: json['parent_id'] as String?,
       user: User.fromJson(json['user'] as Map<String, dynamic>),
       createdAt: DateTime.parse(json['created_at'] as String),
       resolvedAt: json['resolved_at'] == null
           ? null
           : DateTime.parse(json['resolved_at'] as String),
+      clientMeta: json['client_meta'],
+      parentId: json['parent_id'] as String?,
       orderId: json['order_id'] as String?,
     );
 

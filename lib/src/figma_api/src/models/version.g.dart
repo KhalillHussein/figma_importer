@@ -11,11 +11,11 @@ abstract class _$VersionCWProxy {
 
   Version createdAt(DateTime createdAt);
 
+  Version user(User user);
+
   Version label(String? label);
 
   Version description(String? description);
-
-  Version user(User user);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Version(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -26,9 +26,9 @@ abstract class _$VersionCWProxy {
   Version call({
     String? id,
     DateTime? createdAt,
+    User? user,
     String? label,
     String? description,
-    User? user,
   });
 }
 
@@ -45,13 +45,13 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
   Version createdAt(DateTime createdAt) => this(createdAt: createdAt);
 
   @override
+  Version user(User user) => this(user: user);
+
+  @override
   Version label(String? label) => this(label: label);
 
   @override
   Version description(String? description) => this(description: description);
-
-  @override
-  Version user(User user) => this(user: user);
 
   @override
 
@@ -64,21 +64,23 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
   Version call({
     Object? id = const $CopyWithPlaceholder(),
     Object? createdAt = const $CopyWithPlaceholder(),
+    Object? user = const $CopyWithPlaceholder(),
     Object? label = const $CopyWithPlaceholder(),
     Object? description = const $CopyWithPlaceholder(),
-    Object? user = const $CopyWithPlaceholder(),
   }) {
     return Version(
       id: id == const $CopyWithPlaceholder() || id == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.id!
+          ? _value.id
           // ignore: cast_nullable_to_non_nullable
           : id as String,
       createdAt: createdAt == const $CopyWithPlaceholder() || createdAt == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.createdAt!
+          ? _value.createdAt
           // ignore: cast_nullable_to_non_nullable
           : createdAt as DateTime,
+      user: user == const $CopyWithPlaceholder() || user == null
+          ? _value.user
+          // ignore: cast_nullable_to_non_nullable
+          : user as User,
       label: label == const $CopyWithPlaceholder()
           ? _value.label
           // ignore: cast_nullable_to_non_nullable
@@ -87,11 +89,6 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
           ? _value.description
           // ignore: cast_nullable_to_non_nullable
           : description as String?,
-      user: user == const $CopyWithPlaceholder() || user == null
-          // ignore: unnecessary_non_null_assertion
-          ? _value.user!
-          // ignore: cast_nullable_to_non_nullable
-          : user as User,
     );
   }
 }
@@ -109,9 +106,9 @@ extension $VersionCopyWith on Version {
 Version _$VersionFromJson(Map<String, dynamic> json) => Version(
       id: json['id'] as String,
       createdAt: DateTime.parse(json['created_at'] as String),
+      user: User.fromJson(json['user'] as Map<String, dynamic>),
       label: json['label'] as String?,
       description: json['description'] as String?,
-      user: User.fromJson(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$VersionToJson(Version instance) => <String, dynamic>{

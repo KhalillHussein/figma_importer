@@ -1,6 +1,7 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
 
 import 'package:figma_importer/src/figma_api/figma_api.dart';
+import 'package:figma_importer/src/figma_api/src/converters/converters.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'instance.g.dart';
