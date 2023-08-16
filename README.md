@@ -174,7 +174,7 @@ $ figma_importer gen-theme --auto
 Manual Theme generation has three steps:
 1. Create theme reference `figma_importer_theme_ref.yaml` file by the command:
    ```sh
-   $ create-theme-ref
+   $ figma_importer create-theme-ref
    ```
    
 2. Fill in the Figma style names to the fields in the generated file. All properties are optional, unused properties can be deleted. Also, you can define additional themes in the file. 
