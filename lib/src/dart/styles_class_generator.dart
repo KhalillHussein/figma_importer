@@ -1,8 +1,7 @@
 import 'package:code_builder/code_builder.dart';
-
+import 'package:figma/figma.dart';
 import 'package:figma_importer/src/common/common.dart';
 import 'package:figma_importer/src/dart/dart.dart';
-import 'package:figma_importer/src/figma_api/figma_api.dart';
 import 'package:figma_importer/src/parser/parser.dart';
 
 /// A class with methods to generate style classes. Suppports classes with

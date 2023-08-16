@@ -1,5 +1,5 @@
+import 'package:figma/figma.dart';
 import 'package:figma_importer/src/dart/dart.dart';
-import 'package:figma_importer/src/figma_api/figma_api.dart';
 import 'package:figma_importer/src/parser/parser.dart';
 import 'package:test/test.dart';
 

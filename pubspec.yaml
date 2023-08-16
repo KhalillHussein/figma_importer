@@ -18,6 +18,7 @@ dependencies:
   copy_with_extension: ^5.0.3
   dart_style: ^2.3.2
   equatable: ^2.0.5
+  figma: ^7.0.0
   http: ^0.13.5
   http2: ^2.0.1
   json2yaml: ^3.0.1
@@ -38,6 +39,10 @@ dev_dependencies:
   mocktail: ^0.3.0
   test: ^1.24.2
   very_good_analysis: ^5.0.0
+
+dependency_overrides:
+  figma:
+    path: packages/figma
 
 executables:
   figma_importer:

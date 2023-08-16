@@ -1,7 +1,6 @@
+import 'package:figma/figma.dart';
 import 'package:figma_importer/src/common/common.dart';
-
 import 'package:figma_importer/src/figma/figma.dart';
-import 'package:figma_importer/src/figma_api/figma_api.dart';
 import 'package:figma_importer/src/parser/parser.dart';
 
 ///A Class to perform styles import from the Figma file.
