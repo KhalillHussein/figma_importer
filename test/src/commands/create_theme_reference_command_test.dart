@@ -44,7 +44,6 @@ theme_reference:
         label_small: #TODO
   color_schemes:
     - name: lightColorSchemeName
-      factory: light
       properties:
         primary: #TODO
         on_primary: #TODO
@@ -76,6 +75,7 @@ theme_reference:
         on_inverse_surface: #TODO
         inverse_primary: #TODO
         surface_tint: #TODO
+      factory: light
 ''';
 
 void main() {
