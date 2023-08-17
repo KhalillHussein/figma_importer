@@ -25,9 +25,9 @@ figma_importer:
   output_directory_path: lib/resources
   style_class_configs:
     - style: color
-      class_name: Palette
+      class_name: Colors
     - style: typography
-      class_name: TextStyles
+      class_name: Typography
     - style: shadows
       class_name: Shadows
   theme_class_config:
@@ -52,6 +52,12 @@ class ColorPalette {
   static const Color lightContainer = Color(0xFF5470E0);
 
   static const Color lightOnContainer = Color(0xFF5470E0);
+
+  static const Color darkPrimary = Color(0xFF4CB219);
+
+  static const Color darkOnPrimary = Color(0xFFB28C2B);
+
+  static const Color darkSecondary = Color(0xFF1C6BE2);
 }
 ''';
 
@@ -143,7 +149,11 @@ void main() {
         commandRunner = FigmaImporterCommandRunner(
           logger: logger,
         );
-        setUpTestingEnvironment(cwd);
+        setUpTestingEnvironment(cwd, suffix: '.theme');
+
+        File(
+          path.join(Directory.current.path, 'pubspec.yaml'),
+        ).writeAsStringSync(_config);
       },
     );
 
@@ -191,43 +201,32 @@ Run "$executableName help" to see global options.''',
       ).called(1);
     });
     test('auto generate theme', () async {
-      final testDir = Directory(
-        path.join(Directory.current.path, 'gen_theme', 'auto'),
-      )..createSync(recursive: true);
-      Directory.current = testDir.path;
-      File(
-        path.join(testFixturesPath(cwd), 'gen_theme', 'auto', 'pubspec.yaml'),
-      )
-        ..createSync()
-        ..writeAsStringSync(_config);
-
-      Directory(
+      final dir = Directory(
         path.join(Directory.current.path, 'lib', 'resources'),
-      ).createSync(recursive: true);
-      File(
+      );
+      await dir.create(recursive: true);
+      final palette = File(
         path.join(
-          testFixturesPath(cwd),
-          'gen_theme',
-          'auto',
+          testFixturesPath(cwd, suffix: '.theme'),
           'lib',
           'resources',
-          'palette.dart',
+          'colors.dart',
         ),
-      )
-        ..createSync()
-        ..writeAsStringSync(_colorsCodeString);
-      File(
+      );
+      await palette.create();
+      await palette.writeAsString(_colorsCodeString);
+
+      final textStyles = File(
         path.join(
-          testFixturesPath(cwd),
-          'gen_theme',
-          'auto',
+          testFixturesPath(cwd, suffix: '.theme'),
           'lib',
           'resources',
-          'text_styles.dart',
+          'typography.dart',
         ),
-      )
-        ..createSync()
-        ..writeAsStringSync(_typographyCodeString);
+      );
+
+      await textStyles.create();
+      await textStyles.writeAsString(_typographyCodeString);
 
       final exitCode = await commandRunner.run(['gen-theme', '--auto']);
 
@@ -255,15 +254,9 @@ Run "$executableName help" to see global options.''',
     });
 
     test('handle empty theme reference error', () async {
-      final testDir = Directory(
-        path.join(Directory.current.path, 'gen_theme', 'by_path'),
-      )..createSync(recursive: true);
-      Directory.current = testDir.path;
       File(
         path.join(
-          testFixturesPath(cwd),
-          'gen_theme',
-          'by_path',
+          testFixturesPath(cwd, suffix: '.theme'),
           'figma_importer_theme_ref.yaml',
         ),
       )
@@ -280,59 +273,39 @@ Run "$executableName help" to see global options.''',
     });
 
     test('correctly generate theme file by specified path', () async {
-      final testDir = Directory(
-        path.join(Directory.current.path, 'gen_theme', 'by_path'),
-      )..createSync(recursive: true);
-      Directory.current = testDir.path;
       File(
         path.join(
-          testFixturesPath(cwd),
-          'gen_theme',
-          'by_path',
-          'pubspec.yaml',
-        ),
-      )
-        ..createSync()
-        ..writeAsStringSync(_config);
-
-      File(
-        path.join(
-          testFixturesPath(cwd),
-          'gen_theme',
-          'by_path',
+          testFixturesPath(cwd, suffix: '.theme'),
           'figma_importer_theme_ref.yaml',
         ),
       )
         ..createSync()
         ..writeAsStringSync(_themeReferenceYamlString);
 
-      Directory(
+      final dir = Directory(
         path.join(Directory.current.path, 'lib', 'resources'),
-      ).createSync(recursive: true);
-      File(
+      );
+      await dir.create(recursive: true);
+      final palette = File(
         path.join(
-          testFixturesPath(cwd),
-          'gen_theme',
-          'by_path',
+          testFixturesPath(cwd, suffix: '.theme'),
           'lib',
           'resources',
-          'palette.dart',
+          'colors.dart',
         ),
-      )
-        ..createSync()
-        ..writeAsStringSync(_colorsCodeString);
-      File(
+      );
+      await palette.create();
+      await palette.writeAsString(_colorsCodeString);
+      final textStyle = File(
         path.join(
-          testFixturesPath(cwd),
-          'gen_theme',
-          'by_path',
+          testFixturesPath(cwd, suffix: '.theme'),
           'lib',
           'resources',
-          'text_styles.dart',
+          'typography.dart',
         ),
-      )
-        ..createSync()
-        ..writeAsStringSync(_typographyCodeString);
+      );
+      await textStyle.create();
+      await textStyle.writeAsString(_typographyCodeString);
       final refTestPath =
           path.join(Directory.current.path, 'figma_importer_theme_ref.yaml');
       final exitCode =

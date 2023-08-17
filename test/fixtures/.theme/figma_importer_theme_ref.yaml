@@ -1,0 +1,24 @@
+theme_reference:
+  themes:
+    - name: lightExampleName
+      brightness: light
+      text_theme: textThemeName
+      color_scheme: lightColorSchemeName
+  text_themes:
+    - name: textThemeName
+      properties:
+        display_large: display_large
+        display_medium: body_medium
+        display_small: body_small
+        headline_large: h4
+        headline_medium: h5
+        headline_small: h6
+
+  color_schemes:
+    - name: lightColorSchemeName
+      factory: light
+      properties:
+        primary: light_primary
+        on_primary: light_on_primary
+        primary_container: light_container
+        on_primary_container: light_on_container

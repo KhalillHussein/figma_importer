@@ -1,0 +1,15 @@
+figma_importer:
+  api_token: test-token
+  file_id: test-id
+  node_ids: [1-2]
+  output_directory_path: lib/resources
+  style_class_configs:
+    - style: color
+      class_name: Colors
+    - style: typography
+      class_name: Typography
+    - style: shadows
+      class_name: Shadows
+  theme_class_config:
+    class_name: MaterialTheme
+    output_directory_path: lib/resources

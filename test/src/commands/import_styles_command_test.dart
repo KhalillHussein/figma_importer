@@ -124,7 +124,11 @@ void main() {
 
         when(() => logger.progress(any())).thenReturn(progress);
 
-        setUpTestingEnvironment(cwd);
+        setUpTestingEnvironment(cwd, suffix: '.import');
+
+        File(
+          path.join(Directory.current.path, 'pubspec.yaml'),
+        ).writeAsStringSync(_config);
       },
     );
 
@@ -137,21 +141,6 @@ void main() {
     });
 
     test('throws StylesParseException', () async {
-      final testDir = Directory(
-        path.join(Directory.current.path, 'import_styles', 'fail'),
-      )..createSync(recursive: true);
-      Directory.current = testDir.path;
-      File(
-        path.join(
-          testFixturesPath(cwd),
-          'import_styles',
-          'fail',
-          'pubspec.yaml',
-        ),
-      )
-        ..createSync()
-        ..writeAsStringSync(_config);
-
       final nodeResponse = _MockNodeResponse();
 
       when(() => figmaImporter.getFile()).thenAnswer(
@@ -170,23 +159,7 @@ void main() {
     });
 
     test('throws StylesNotFoundException', () async {
-      final testDir = Directory(
-        path.join(Directory.current.path, 'import_styles', 'fail'),
-      )..createSync(recursive: true);
-      Directory.current = testDir.path;
-      File(
-        path.join(
-          testFixturesPath(cwd),
-          'import_styles',
-          'fail',
-          'pubspec.yaml',
-        ),
-      )
-        ..createSync()
-        ..writeAsStringSync(_config);
-
       final nodeResponse = _MockNodeResponse();
-
       when(() => figmaImporter.getFile()).thenAnswer(
         (_) => Future.value(nodeResponse),
       );
@@ -204,13 +177,6 @@ void main() {
 
     test('successfully creates the styles', () async {
       final nodeResponse = _MockNodeResponse();
-      final testDir = Directory(
-        path.join(Directory.current.path, 'import_styles'),
-      )..createSync(recursive: true);
-      Directory.current = testDir.path;
-      File(path.join(testFixturesPath(cwd), 'import_styles', 'pubspec.yaml'))
-        ..createSync()
-        ..writeAsStringSync(_config);
 
       when(() => nodeResponse.nodes).thenReturn(_nodes);
 
