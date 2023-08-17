@@ -21,6 +21,24 @@ final updatePrompt = '''
 ${lightYellow.wrap('Update available!')} ${lightCyan.wrap(packageVersion)} \u2192 ${lightCyan.wrap(latestVersion)}
 Run ${lightCyan.wrap('$executableName update')} to update''';
 
+const expectedUsage = [
+  '🎨 figma_importer • transform design to code and more.\n',
+  '\n',
+  'Usage: figma_importer <command> [arguments]\n',
+  '\n',
+  'Global options:\n',
+  '-h, --help       Print this usage information.\n',
+  '-v, --version    Print the current version.\n',
+  '\n',
+  'Available commands:\n',
+  '  create-theme-ref   Create theme reference .yaml file.\n',
+  '  gen-theme          Generate theme from the style files.\n',
+  '  import             Import styles from the Figma page.\n',
+  '  update             Update the CLI.\n',
+  '\n',
+  'Run "figma_importer help <command>" for more information about a command.',
+];
+
 void main() {
   group('FigmaImporterCommandRunner', () {
     late PubUpdater pubUpdater;
@@ -133,11 +151,37 @@ void main() {
       verify(() => logger.info('exception usage')).called(1);
     });
 
+    test('handles ProcessException', () async {
+      const exception = ProcessException('oops!', ['args']);
+      var isFirstInvocation = true;
+      when(() => logger.info(any())).thenAnswer((_) {
+        if (isFirstInvocation) {
+          isFirstInvocation = false;
+          throw exception;
+        }
+      });
+      final result = await commandRunner.run(['--version']);
+      expect(result, equals(ExitCode.unavailable.code));
+      verify(() => logger.err(exception.message)).called(1);
+    });
+
     group('--version', () {
       test('outputs current version', () async {
         final result = await commandRunner.run(['--version']);
         expect(result, equals(ExitCode.success.code));
         verify(() => logger.info(packageVersion)).called(1);
+      });
+    });
+
+    group('--help', () {
+      test('outputs usage', () async {
+        final result = await commandRunner.run(['--help']);
+        verify(() => logger.info(expectedUsage.join())).called(1);
+        expect(result, equals(ExitCode.success.code));
+
+        final resultAbbr = await commandRunner.run(['-h']);
+        verify(() => logger.info(expectedUsage.join())).called(1);
+        expect(resultAbbr, equals(ExitCode.success.code));
       });
     });
   });
