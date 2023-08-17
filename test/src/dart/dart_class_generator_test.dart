@@ -14,6 +14,7 @@ import 'package:somelib/somefile.dart';
 class ClassWithFields {
   const ClassWithFields._();
 
+  ///some docs here
   static const String field1 = "someString";
 
   static const String field2 = "someString";
@@ -30,6 +31,7 @@ final field1 = Field((FieldBuilder builder) {
         ..symbol = 'String',
     )
     ..name = 'field1'
+    ..docs.add('\n///some docs here')
     ..assignment = const Code('"someString"');
 });
 
@@ -75,10 +77,12 @@ void main() {
           type: 'String',
           name: 'field1',
           code: '"someString"',
+          description: 'some docs here',
         );
         expect(finalField.name, equals(field1.name));
         expect(finalField.type, equals(field1.type));
         expect(finalField.modifier, equals(field1.modifier));
+        expect(finalField.docs, equals(field1.docs));
       });
     });
   });

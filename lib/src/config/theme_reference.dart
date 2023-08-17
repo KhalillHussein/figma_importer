@@ -1,4 +1,3 @@
-import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:figma_importer/src/config/config.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -165,7 +164,6 @@ abstract class BaseThemeProperties extends Equatable {
 }
 
 @JsonSerializable(explicitToJson: true)
-@CopyWith()
 class TextTheme extends BaseThemeParams<TextThemeProperties> {
   const TextTheme({
     required super.name,
@@ -182,7 +180,6 @@ class TextTheme extends BaseThemeParams<TextThemeProperties> {
 }
 
 @JsonSerializable()
-@CopyWith()
 class TextThemeProperties extends BaseThemeProperties {
   const TextThemeProperties({
     this.displayLarge,
@@ -276,7 +273,6 @@ class TextThemeProperties extends BaseThemeProperties {
 enum ColorSchemeFactory { light, dark }
 
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
-@CopyWith()
 class ColorScheme extends BaseThemeParams<ColorSchemeProperties> {
   const ColorScheme({
     required super.name,
@@ -296,7 +292,6 @@ class ColorScheme extends BaseThemeParams<ColorSchemeProperties> {
 }
 
 @JsonSerializable()
-@CopyWith()
 class ColorSchemeProperties extends BaseThemeProperties {
   const ColorSchemeProperties({
     this.primary,

@@ -28,7 +28,7 @@ void main() {
   final cwd = Directory.current;
   group('YamlUtils', () {
     setUp(() {
-      setUpTestingEnvironment(cwd);
+      setUpTestingEnvironment(cwd, suffix: '.yamlUtils');
     });
 
     tearDown(() {

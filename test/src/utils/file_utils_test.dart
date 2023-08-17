@@ -10,7 +10,7 @@ void main() {
   final cwd = Directory.current;
   group('FileUtils', () {
     setUp(() {
-      setUpTestingEnvironment(cwd);
+      setUpTestingEnvironment(cwd, suffix: '.fileUtils');
     });
 
     tearDown(() {

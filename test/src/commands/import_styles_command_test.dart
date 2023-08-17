@@ -94,6 +94,12 @@ const _styleMap = {
   ],
 };
 
+const _styleMapWithEmptyStyles = {
+  StyleDefinition.color: <ColorStyle>[],
+  StyleDefinition.shadows: <EffectStyle>[],
+  StyleDefinition.typography: <TextStyle>[],
+};
+
 void main() {
   final cwd = Directory.current;
   group('import', () {
@@ -173,6 +179,39 @@ void main() {
       );
       verify(() => logger.progress(Strings.gettingFileLog)).called(1);
       verifyNever(() => logger.info(Strings.successLog));
+    });
+
+    test('skip styles if null or empty', () async {
+      final nodeResponse = _MockNodeResponse();
+
+      when(() => nodeResponse.nodes).thenReturn(_nodes);
+
+      when(() => figmaImporter.getFile()).thenAnswer(
+        (_) => Future.value(nodeResponse),
+      );
+
+      when(() => figmaImporter.getFileStyles(nodeResponse))
+          .thenAnswer((_) => Future.value(_styleMapWithEmptyStyles));
+
+      final result = await importStylesCommand.run();
+      expect(result, equals(ExitCode.success.code));
+      verify(() => logger.progress(Strings.gettingFileLog)).called(1);
+      verify(
+        () => logger.progress(
+          Strings.skipStyleBecauseNotFoundLog('Palette'),
+        ),
+      ).called(1);
+      verify(
+        () => logger.progress(
+          Strings.skipStyleBecauseNotFoundLog('TextStyles'),
+        ),
+      ).called(1);
+      verify(
+        () => logger.progress(
+          Strings.skipStyleBecauseNotFoundLog('Shadows'),
+        ),
+      ).called(1);
+      verify(() => logger.info(Strings.successLog)).called(1);
     });
 
     test('successfully creates the styles', () async {

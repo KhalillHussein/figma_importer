@@ -14,17 +14,27 @@ class DartObjectBuilder {
     String? name,
     // ignore: always_put_required_named_parameters_first
     required Object value,
-  }) =>
-      _params.add(name == null ? '$value' : '$name: $value');
+  }) {
+    var valueString = '$value';
+
+    //Add a comma before the close square brackets.
+    //If the square brackets contain elements
+    if (valueString.contains(RegExp(r'(?<=\[).+?(?=\])'))) {
+      valueString = '${valueString.replaceFirst(']', '')},]';
+    }
+
+    _params.add(name == null ? valueString : '$name: $valueString');
+  }
 
   String get result {
-    final line = '$_objectName$_params'.replaceAll('[', '(');
+    final line = '$_objectName$_params'.replaceFirst('[', '(');
+    final lastIndex = line.length - 1;
 
     //Add trailing comma when the line length >= 40 chars.
     if (line.length >= 40) {
-      return line.replaceAll(']', ',)');
+      return line.replaceFirst(']', ',)', lastIndex);
     }
-    return line.replaceAll(']', ')');
+    return line.replaceFirst(']', ')', lastIndex);
   }
 
   List<String> get params => _params;

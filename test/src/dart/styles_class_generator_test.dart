@@ -73,6 +73,13 @@ const styleColors = [
     ),
   ),
   ColorStyle(
+    name: 'linearGradientNoAlignmentAndStops',
+    paint: Paint(
+      visible: true,
+      type: PaintType.gradientLinear,
+    ),
+  ),
+  ColorStyle(
     name: 'radialGradient',
     paint: Paint(
       visible: true,
@@ -160,6 +167,7 @@ const textStyles = [
       fontWeight: 500,
       fontSize: 28,
       lineHeightPx: 42,
+      letterSpacing: 0.4,
     ),
   ),
   TextStyle(
@@ -319,18 +327,25 @@ class ColorPalette {
   static const Color color05 = Color(0xFF5470E0);
 
   static const Gradient linearGradient = LinearGradient(
-    colors: (
+    colors: [
       Color(0xFF5470E0),
       Color(0xFF991E54),
       Color(0xFF33A351),
-    ),
+    ],
     begin: FractionalOffset(0.00, 0.00),
     end: FractionalOffset(0.20, 0.40),
-    stops: (
+    stops: [
       0.20,
       0.60,
       1.00,
-    ),
+    ],
+  );
+
+  static const Gradient linearGradientNoAlignmentAndStops = LinearGradient(
+    colors: [],
+    begin: FractionalOffset(0.00, 0.00),
+    end: FractionalOffset(0.00, 0.00),
+    stops: [],
   );
 }
 ''';
@@ -344,6 +359,7 @@ class Typography {
   static const TextStyle h1 = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 28,
+    letterSpacing: 0.40,
     height: 1.50,
     fontFamily: 'Inter',
   );
@@ -413,7 +429,7 @@ class Shadows {
       blurRadius: 4.0,
       spreadRadius: 2.0,
       offset: Offset(0, 2),
-    )
+    ),
   ];
 
   static const List<BoxShadow> bigShadow = [
@@ -422,7 +438,7 @@ class Shadows {
       blurRadius: 16.0,
       spreadRadius: 4.0,
       offset: Offset(0, 0),
-    )
+    ),
   ];
 
   static const List<BoxShadow> compositeShadow = [
@@ -443,7 +459,7 @@ class Shadows {
       blurRadius: 32.0,
       spreadRadius: 12.0,
       offset: Offset(0, -2),
-    )
+    ),
   ];
 }
 ''';

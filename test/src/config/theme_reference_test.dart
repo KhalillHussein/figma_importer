@@ -78,5 +78,66 @@ void main() {
         equals('lightColorSchemeName'),
       );
     });
+
+    test('object equality', () {
+      expect(_themeReference, same(_themeReference));
+    });
+    test('ThemeReferenceRoot props equality', () {
+      expect(_themeReference.props, equals(_themeReference.props));
+    });
+
+    test('ThemeReference props equality', () {
+      expect(
+        _themeReference.themeReference!.props,
+        equals(_themeReference.themeReference!.props),
+      );
+    });
+
+    test('Theme props equality', () {
+      expect(
+        _themeReference.themeReference!.themes.first.props,
+        equals(_themeReference.themeReference!.themes.first.props),
+      );
+    });
+    test('TextTheme props equality', () {
+      expect(
+        _themeReference.themeReference!.textThemes!.first.props,
+        equals(_themeReference.themeReference!.textThemes!.first.props),
+      );
+    });
+
+    test('TextThemeProperties props equality', () {
+      expect(
+        _themeReference.themeReference!.textThemes!.first.properties.props,
+        equals(
+          _themeReference.themeReference!.textThemes!.first.properties.props,
+        ),
+      );
+    });
+
+    test('ColorScheme props equality', () {
+      expect(
+        _themeReference.themeReference!.colorSchemes!.first.props,
+        equals(_themeReference.themeReference!.colorSchemes!.first.props),
+      );
+    });
+
+    test('ColorScheme props equality', () {
+      expect(
+        _themeReference.themeReference!.colorSchemes!.first.properties.props,
+        equals(
+          _themeReference.themeReference!.colorSchemes!.first.properties.props,
+        ),
+      );
+    });
+
+    test('ColorScheme props equality', () {
+      expect(
+        _themeReference.themeReference!.colorSchemes!.first.properties.props,
+        equals(
+          _themeReference.themeReference!.colorSchemes!.first.properties.props,
+        ),
+      );
+    });
   });
 }

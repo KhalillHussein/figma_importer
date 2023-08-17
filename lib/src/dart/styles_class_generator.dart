@@ -63,7 +63,7 @@ class StylesClassGenerator extends DartClassGenerator {
             modifier: FieldModifier.constant,
             type: 'List<BoxShadow>',
             name: style.name,
-            code: _flutterShadowsList(style),
+            code: '${_flutterShadowsList(style).replaceFirst(']', '')},]',
             description: style.description,
           ),
       };
@@ -179,15 +179,15 @@ class StylesClassGenerator extends DartClassGenerator {
       ..addProperty(name: 'begin', value: begin)
       ..addProperty(name: 'end', value: end)
       ..addProperty(name: 'stops', value: stops);
-
     return codeBuilder.result;
   }
 
   String? _flutterGradient(Paint paint) => switch (paint.type) {
         PaintType.gradientLinear => _linearGradient(
-            colors: paint.gradientStops!
-                .map((e) => _flutterColor(e.color!))
-                .toList(),
+            colors: paint.gradientStops
+                    ?.map((e) => _flutterColor(e.color!))
+                    .toList() ??
+                [],
             begin: paint.gradientHandlePositions != null &&
                     paint.gradientHandlePositions!.isNotEmpty
                 ? _gradientAlignment(

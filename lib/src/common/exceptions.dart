@@ -32,8 +32,8 @@ class StylesParseException extends FigmaImporterException {
 /// {@endtemplate}
 class ConfigNotFoundException extends FigmaImporterException {
   /// {@macro config_not_found_exception}
-  const ConfigNotFoundException()
-      : super('Config not found. Please create config first.');
+  const ConfigNotFoundException() : super('''
+Config not found. Please create config first.''');
 }
 
 /// {@template theme_reference_not_found_exception}
@@ -41,7 +41,8 @@ class ConfigNotFoundException extends FigmaImporterException {
 /// {@endtemplate}
 class ThemeReferenceNotFoundException extends FigmaImporterException {
   /// {@macro theme_reference_not_found_exception}
-  const ThemeReferenceNotFoundException() : super('Theme reference not found.');
+  const ThemeReferenceNotFoundException() : super('''
+Theme reference not found.''');
 }
 
 /// {@template empty_theme_object_exception}
@@ -49,8 +50,8 @@ class ThemeReferenceNotFoundException extends FigmaImporterException {
 /// {@endtemplate}
 class EmptyThemeObjectException extends FigmaImporterException {
   /// {@macro empty_theme_object_exception}
-  const EmptyThemeObjectException()
-      : super('Cannot generate the field class because object is empty.');
+  const EmptyThemeObjectException() : super('''
+Cannot generate the field class because object is empty.''');
 }
 
 /// {@template empty_theme_class_exception}
@@ -59,7 +60,6 @@ class EmptyThemeObjectException extends FigmaImporterException {
 /// {@endtemplate}
 class EmptyThemeClassException extends FigmaImporterException {
   /// {@macro empty_theme_class_exception}
-  const EmptyThemeClassException()
-      : super('Cannot generate the theme class because no matching fields '
-            'were found.');
+  const EmptyThemeClassException() : super('''
+Cannot generate the theme class because no matching fields were found.''');
 }

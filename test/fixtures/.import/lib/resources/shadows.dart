@@ -9,6 +9,6 @@ class Shadows {
       blurRadius: 0.0,
       spreadRadius: 2.0,
       offset: Offset(0, -2),
-    )
+    ),
   ];
 }
