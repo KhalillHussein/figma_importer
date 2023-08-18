@@ -12,9 +12,9 @@ import 'package:pub_updater/pub_updater.dart';
 
 /// Type definition for `FigmaImporterBuilder.new`.
 typedef FigmaImporterBuilder = FigmaImporter Function({
-  required String apiToken,
   required String fileId,
   required List<String> nodeIds,
+  String? apiToken,
 });
 
 const executableName = 'figma_importer';

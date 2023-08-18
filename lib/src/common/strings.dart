@@ -1,6 +1,4 @@
 class Strings {
-  const Strings._();
-
   static const String libDir = 'lib';
   static const String paletteClass = 'Palette';
   static const String typographyClass = 'Typography';
@@ -44,7 +42,7 @@ class Strings {
   ) =>
       '$type $name for theme $themeName not found.';
 
-  static String styleSkipInfoLog(
+  static String themeSkipInfoLog(
     String type,
     String name,
   ) =>

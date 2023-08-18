@@ -10,12 +10,17 @@ class TokenParser {
   ///Get style objects from the Figma file.
   Map<String, Style>? getStylesFromFile(
     NodesResponse file,
-  ) =>
-      file.nodes?.values.map((e) => e.styles).reduce((value, element) {
-        if (element != null) value?.addAll(element);
+  ) {
+    final styles = file.nodes?.values
+        .map((e) => e.styles?.entries.toList())
+        .whereNotNull();
 
-        return value;
-      });
+    if (styles == null || styles.isEmpty) return null;
+
+    return Map.fromEntries(
+      styles.reduce((value, element) => value + element),
+    );
+  }
 
   /// Group style types by [StyleDefinition].
   Map<StyleDefinition, List<BaseStyle>> getStyleSets(List<BaseStyle> styles) {
@@ -97,22 +102,35 @@ class TokenParser {
 
   ///Find style properties in the figma file by theirs ID's from the
   ///style definitions.
-  List<BaseStyle>? _findStylesInTree(Node? root, Map<String, Style> styles) {
-    if (_isLeaf(root) || (root is ComponentNode && root.styles != null)) {
-      return _getStylesFromNode(root, styles);
-    }
+  List<BaseStyle>? _findStylesInTree(
+    Node? root,
+    Map<String, Style> styles, [
+    List<BaseStyle>? tempStyles,
+  ]) {
+    final temp = tempStyles ?? <BaseStyle>[];
+
+    final nodeStyles = _getStylesFromNode(root, styles);
+    if (nodeStyles != null) temp.addAll(nodeStyles);
+
+    if (_isLeaf(root)) return temp;
+
     final res =
-        _getNodeChildren(root)?.map((e) => _findStylesInTree(e, styles));
+        _getNodeChildren(root)?.map((e) => _findStylesInTree(e, styles, temp));
     if (res == null || res.isEmpty) return null;
 
-    return res.reduce((acc, current) {
-      return acc != null && current != null ? acc + current : acc ?? current;
-    });
+    return res
+        .reduce((acc, current) {
+          return acc != null && current != null
+              ? acc + current
+              : acc ?? current;
+        })
+        ?.toSet()
+        .toList();
   }
 
   ///Get style objects from the [Node].
   List<BaseStyle>? _getStylesFromNode(Node? node, Map<String, Style> styles) {
-    final nodeStyles = _getStylesBasedOnNodeType(node!);
+    final nodeStyles = _getStylesBasedOnNodeType(node);
     if (nodeStyles == null) return null;
     return nodeStyles.entries.expand<BaseStyle>((entry) {
       final style = styles.entries.firstWhereOrNull(
@@ -122,7 +140,7 @@ class TokenParser {
             entry.key == _getStyleTypeKey(style.value.type!),
       );
 
-      if (style == null) return [];
+      if (style == null || node == null) return [];
       final mappedStyle = _mapStyleType(node, style.value);
       if (mappedStyle == null) return [];
       return [mappedStyle];
@@ -154,7 +172,7 @@ class TokenParser {
     };
   }
 
-  Map<StyleTypeKey, String>? _getStylesBasedOnNodeType(Node node) {
+  Map<StyleTypeKey, String>? _getStylesBasedOnNodeType(Node? node) {
     return switch (node) {
       Frame _ => node.styles,
       Vector _ => node.styles,
@@ -178,16 +196,16 @@ class TokenParser {
   bool _isLeaf(Node? node) {
     final children = _getNodeChildren(node);
 
-    return node != null && children == null;
+    return node != null && children == null || children!.isEmpty;
   }
 
   ///Mapping [StyleType] in the [Style] object to the [StyleTypeKey] in the
   ///[Node] style property.
-  StyleTypeKey _getStyleTypeKey(StyleType styleType) => switch (styleType) {
+  StyleTypeKey? _getStyleTypeKey(StyleType styleType) => switch (styleType) {
         StyleType.fill => StyleTypeKey.fill,
         StyleType.text => StyleTypeKey.text,
         StyleType.effect => StyleTypeKey.effect,
-        StyleType.grid => StyleTypeKey.grid,
+        _ => null,
       };
 
   ///Only [Frame], [Section], [Canvas],[BooleanOperation] can have

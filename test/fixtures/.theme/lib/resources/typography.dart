@@ -29,4 +29,18 @@ class Typography {
     height: 1.00,
     fontFamily: 'Inter',
   );
+
+   static const TextStyle darkBlueTitleSmall = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 56,
+    height: 1.00,
+    fontFamily: 'Inter',
+  );
+
+   static const TextStyle darkBlueBodySmall = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 56,
+    height: 1.00,
+    fontFamily: 'Inter',
+  );
 }

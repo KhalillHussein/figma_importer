@@ -20,6 +20,6 @@ class MaterialTheme {
 
   static const TextTheme textThemeName = TextTheme(
     displayMedium: Typography.bodyMedium,
-    displaySmall: Typography.bodySmall,
+    displaySmall: Typography.darkBlueBodySmall,
   );
 }

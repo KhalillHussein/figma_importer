@@ -6,11 +6,15 @@ import 'package:figma_importer/src/parser/parser.dart';
 ///A Class to perform styles import from the Figma file.
 class FigmaImporter implements Importer<NodesResponse> {
   FigmaImporter({
-    required String apiToken,
     required String fileId,
     required List<String> nodeIds,
+    String? apiToken,
     FigmaClient? figmaClient,
-  })  : _client = figmaClient ?? FigmaClient(apiToken),
+  })  : assert(
+          apiToken != null || figmaClient != null,
+          'apiToken or figmaClient should not be null.',
+        ),
+        _client = figmaClient ?? FigmaClient(apiToken!),
         _fileId = fileId,
         _nodeIds = nodeIds;
 

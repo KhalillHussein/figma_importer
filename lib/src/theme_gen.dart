@@ -97,7 +97,7 @@ mixin ThemeGenMixin on FigmaImporterCommand {
               3;
       if (isLessThan) {
         logger.info(
-          Strings.styleSkipInfoLog(
+          Strings.themeSkipInfoLog(
             _colorScheme,
             element.name.replaceAll(_colorScheme, ''),
           ),
@@ -112,7 +112,7 @@ mixin ThemeGenMixin on FigmaImporterCommand {
               3;
       if (isLessThan) {
         logger.info(
-          Strings.styleSkipInfoLog(
+          Strings.themeSkipInfoLog(
             _textTheme,
             element.name.replaceAll(_textTheme, ''),
           ),
@@ -207,16 +207,14 @@ mixin ThemeGenMixin on FigmaImporterCommand {
     final indexToUpdate =
         textThemes.indexWhere((element) => element.name == name);
     if (indexToUpdate == -1) {
+      //add new text theme if does not exists
       textThemes.add((name: name, properties: {keyToUpdate: styleName}));
     } else {
+      //or update an existing text theme properties if exists
       textThemes[indexToUpdate] = (
         name: textThemes[indexToUpdate].name,
         properties: textThemes[indexToUpdate].properties
-          ..update(
-            keyToUpdate,
-            (_) => styleName,
-            ifAbsent: () => styleName,
-          ),
+          ..update(keyToUpdate, (_) => styleName, ifAbsent: () => styleName),
       );
     }
   }

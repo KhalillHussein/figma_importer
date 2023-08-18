@@ -20,4 +20,8 @@ class ColorPalette {
   static const Color darkOnPrimary = Color(0xFFB28C2B);
 
   static const Color darkSecondary = Color(0xFF1C6BE2);
+
+  static const Color darkBluePrimary = Color(0xFF1C6BE2);
+
+  static const Color darkBlueOnPrimary = Color(0xFFB28C2B);
 }

@@ -170,14 +170,13 @@ void main() {
     late FigmaImporter figmaImporter;
 
     setUpAll(() {
-      registerFallbackValue(const FigmaQuery(ids: []));
+      registerFallbackValue(const FigmaQuery());
       registerFallbackValue(const NodesResponse());
     });
 
     setUp(() {
       figmaClient = _MockFigmaClient();
       figmaImporter = FigmaImporter(
-        apiToken: 'test-token',
         fileId: 'test-id',
         nodeIds: ['1', '2'],
         figmaClient: figmaClient,
@@ -186,6 +185,16 @@ void main() {
       when(
         () => figmaClient.getFileNodes(any(), any()),
       ).thenAnswer((_) => Future.value(_nodesResponseWithEmptyStyles));
+    });
+
+    test('can be instantiated without an explicit figmaClient instance', () {
+      final figmaImporter = FigmaImporter(
+        fileId: 'test-id',
+        nodeIds: ['1', '2'],
+        apiToken: 'test-token',
+      );
+      expect(figmaImporter, isNotNull);
+      expect(figmaImporter, isA<Importer<NodesResponse>>());
     });
 
     group('getFile', () {

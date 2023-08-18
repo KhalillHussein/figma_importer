@@ -58,6 +58,10 @@ class ColorPalette {
   static const Color darkOnPrimary = Color(0xFFB28C2B);
 
   static const Color darkSecondary = Color(0xFF1C6BE2);
+
+  static const Color darkBluePrimary = Color(0xFF1C6BE2);
+
+  static const Color darkBlueOnPrimary = Color(0xFFB28C2B);
 }
 ''';
 
@@ -88,6 +92,20 @@ class Typography {
   );
 
   static const TextStyle titleSmall = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 56,
+    height: 1.00,
+    fontFamily: 'Inter',
+  );
+
+   static const TextStyle darkBlueTitleSmall = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 56,
+    height: 1.00,
+    fontFamily: 'Inter',
+  );
+
+   static const TextStyle darkBlueBodySmall = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 56,
     height: 1.00,
@@ -233,6 +251,18 @@ Run "$executableName help" to see global options.''',
       expect(exitCode, equals(ExitCode.success.code));
 
       verify(() => logger.progress(Strings.autoGenThemeLog)).called(1);
+
+      verify(
+        () => logger.info(
+          Strings.themeSkipInfoLog('ColorScheme', 'darkBlue'),
+        ),
+      ).called(1);
+
+      verify(
+        () => logger.info(
+          Strings.themeSkipInfoLog('TextTheme', 'darkBlue'),
+        ),
+      ).called(1);
 
       verify(() => logger.info(Strings.successLog)).called(1);
     });
