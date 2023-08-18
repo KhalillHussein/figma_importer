@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:figma/figma.dart';
+import 'package:figma_client/figma_client.dart';
 import 'package:figma_importer/src/commands/commands.dart';
 import 'package:figma_importer/src/common/common.dart';
 import 'package:figma_importer/src/figma/figma.dart';

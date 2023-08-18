@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart';
 
-import 'package:figma/figma.dart';
+import 'package:figma_client/figma_client.dart';
 import 'package:figma_importer/src/parser/parser.dart';
 
 ///Class that parses style tokens from the Figma file.

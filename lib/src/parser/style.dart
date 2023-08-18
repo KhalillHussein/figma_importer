@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'package:figma/figma.dart';
+import 'package:figma_client/figma_client.dart';
 
 enum StyleDefinition { color, typography, shadows }
 

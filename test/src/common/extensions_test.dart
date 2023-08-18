@@ -1,4 +1,4 @@
-import 'package:figma/figma.dart';
+import 'package:figma_client/figma_client.dart';
 import 'package:figma_importer/src/common/common.dart';
 import 'package:test/test.dart';
 

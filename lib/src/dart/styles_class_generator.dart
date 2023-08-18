@@ -1,5 +1,5 @@
 import 'package:code_builder/code_builder.dart';
-import 'package:figma/figma.dart';
+import 'package:figma_client/figma_client.dart';
 import 'package:figma_importer/src/common/common.dart';
 import 'package:figma_importer/src/dart/dart.dart';
 import 'package:figma_importer/src/parser/parser.dart';

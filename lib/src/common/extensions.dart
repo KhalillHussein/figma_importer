@@ -1,4 +1,4 @@
-import 'package:figma/figma.dart';
+import 'package:figma_client/figma_client.dart';
 
 typedef ArgbColorsTo255 = ({int a, int r, int g, int b});
 
