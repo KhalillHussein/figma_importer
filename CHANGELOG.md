@@ -1,6 +1,7 @@
 ## 0.1.1
 
 * Fix wrong brackets in style lists
+* Bump deps versions
 * Add more tests
 
 ## 0.1.0+2
