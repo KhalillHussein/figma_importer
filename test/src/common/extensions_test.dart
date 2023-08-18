@@ -104,7 +104,7 @@ void main() {
                 'm3RefErrorError0',
                 'm3RefErrorError10',
                 'm3BodyLarge',
-                'm3BodyMedium'
+                'm3BodyMedium',
               ],
             ),
           );

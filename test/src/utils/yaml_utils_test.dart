@@ -13,8 +13,8 @@ const _yamlMap = {
         'name': 'test-name',
         'params': 'test-params',
       }
-    ]
-  }
+    ],
+  },
 };
 
 const _yamlString = '''

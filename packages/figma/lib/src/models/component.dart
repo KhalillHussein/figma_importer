@@ -88,7 +88,7 @@ class Component extends Equatable {
         user,
         containingFrame,
         containingPage,
-        componentSetId
+        componentSetId,
       ];
 
   Map<String, dynamic> toJson() => _$ComponentToJson(this);

@@ -68,7 +68,7 @@ const styleColors = [
         ColorStop(
           position: 1,
           color: Color(r: 0.2, g: 0.64, b: 0.32, a: 1),
-        )
+        ),
       ],
     ),
   ),
@@ -101,7 +101,7 @@ const styleColors = [
         ColorStop(
           position: 1,
           color: Color(r: 0.2, g: 0.64, b: 0.32, a: 1),
-        )
+        ),
       ],
     ),
   ),
@@ -127,7 +127,7 @@ const styleColors = [
         ColorStop(
           position: 1,
           color: Color(r: 0.2, g: 0.64, b: 0.32, a: 1),
-        )
+        ),
       ],
     ),
   ),
@@ -153,7 +153,7 @@ const styleColors = [
         ColorStop(
           position: 1,
           color: Color(r: 0.2, g: 0.64, b: 0.32, a: 1),
-        )
+        ),
       ],
     ),
   ),

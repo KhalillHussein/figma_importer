@@ -271,7 +271,7 @@ const _nodesResponseWithTwoKeys = NodesResponse(
             layoutPositioning: LayoutPositioning.absolute,
             itemReverseZIndex: false,
             strokesIncludedInLayout: false,
-          )
+          ),
         ],
       ),
       styles: _rawStyles,
@@ -323,7 +323,7 @@ const _nodesResponseWithTwoKeys = NodesResponse(
             layoutPositioning: LayoutPositioning.absolute,
             itemReverseZIndex: false,
             strokesIncludedInLayout: false,
-          )
+          ),
         ],
       ),
       styles: _rawStyles,
