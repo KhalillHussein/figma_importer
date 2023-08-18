@@ -1,3 +1,8 @@
+## 0.1.2
+
+* Fix pub analysis issues
+* Added external `figma_client` package
+
 ## 0.1.1
 
 * Fix wrong brackets in style lists
