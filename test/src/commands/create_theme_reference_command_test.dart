@@ -100,7 +100,7 @@ void main() {
         logger: logger,
         pubUpdater: pubUpdater,
       );
-      setUpTestingEnvironment(cwd);
+      setUpTestingEnvironment(cwd, suffix: '.create_theme_ref');
     });
 
     tearDown(() {
@@ -108,16 +108,11 @@ void main() {
     });
 
     test('creates a new theme reference', () async {
-      final testDir = Directory(
-        path.join(Directory.current.path, 'create_theme_reference'),
-      )..createSync(recursive: true);
-      Directory.current = testDir.path;
       final exitCode = await commandRunner.run(['create-theme-ref']);
       expect(exitCode, equals(ExitCode.success.code));
       final file = File(
         path.join(
-          testFixturesPath(cwd),
-          'create_theme_reference',
+          testFixturesPath(cwd, suffix: '.create_theme_ref'),
           'figma_importer_theme_ref.yaml',
         ),
       );
