@@ -1,9 +1,20 @@
 ![Banner](https://raw.githubusercontent.com/KhalillHussein/figma_importer/main/doc/figma_importer_cover.png?raw=true)
 
-[![coverage][coverage_badge]][coverage_badge]
-[![pub package][pub_badge]][pub_link]
-[![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
-[![License: MIT][license_badge]][license_link]
+<p align="center">
+  <a href="https://github.com/KhalillHussein/figma_importer/actions">
+    <img alt="Code Coverage" src="https://raw.githubusercontent.com/KhalillHussein/figma_importer/main/coverage_badge.svg">
+  </a>
+  <a href="https://pub.dartlang.org/packages/figma_importer">
+    <img alt="Pub Package" src="https://img.shields.io/pub/v/figma_importer.svg">
+  </a>
+  <a href="https://pub.dev/packages/very_good_analysis">
+    <img alt="style: effective dart" src="https://img.shields.io/badge/style-very_good_analysis-B22C89.svg">
+  </a>  
+  <a href="https://opensource.org/licenses/MIT">
+    <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue.svg">
+  </a>
+</p>
+
 
 ---
 
@@ -191,11 +202,3 @@ Manual Theme generation has three steps:
 ## Bugs or Requests 🤝
 
 If you encounter any problems feel free to open an [issue](https://github.com/KhalillHussein/figma_importer/issues/new?template=bug_report.md). If you feel the library is missing a feature, please raise a [ticket](https://github.com/KhalillHussein/figma_importer/issues/new?template=feature_request.md). Pull request are also welcome.
-
-[coverage_badge]: https://raw.githubusercontent.com/KhalillHussein/figma_importer/main/coverage_badge.svg
-[pub_badge]: https://img.shields.io/pub/v/figma_importer.svg
-[pub_link]: https://pub.dartlang.org/packages/figma_importer
-[license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[license_link]: https://opensource.org/licenses/MIT
-[very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg
-[very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
