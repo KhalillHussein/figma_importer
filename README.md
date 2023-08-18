@@ -1,6 +1,6 @@
 ![Banner](https://raw.githubusercontent.com/KhalillHussein/figma_importer/main/doc/figma_importer_cover.png?raw=true)
 
-
+[![coverage][coverage_badge]][coverage_badge]
 [![pub package][pub_badge]][pub_link]
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![License: MIT][license_badge]][license_link]
@@ -192,6 +192,7 @@ Manual Theme generation has three steps:
 
 If you encounter any problems feel free to open an [issue](https://github.com/KhalillHussein/figma_importer/issues/new?template=bug_report.md). If you feel the library is missing a feature, please raise a [ticket](https://github.com/KhalillHussein/figma_importer/issues/new?template=feature_request.md). Pull request are also welcome.
 
+[coverage_badge]: https://raw.githubusercontent.com/KhalillHussein/figma_importer/main/coverage_badge.svg
 [pub_badge]: https://img.shields.io/pub/v/figma_importer.svg
 [pub_link]: https://pub.dartlang.org/packages/figma_importer
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
