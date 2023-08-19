@@ -61,12 +61,15 @@ class MyAppPalette {
 class MyAppTypography {
   MyAppTypography._();
 
-  static const displayLarge = TextStyle(
-    fontSize: 48,
-    fontWeight: FontWeight.w600,
-    fontFamily: 'Inter',
-    ...
+    static const displayLarge = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 36.0,
+    height: 1.22,
+    fontFamily: 'Roboto',
+    letterSpacing: 0.4,
+    decoration: TextDecoration.underline,
   );
+  ...
 }
 ```
 

@@ -43,11 +43,14 @@ class MyAppTypography {
   MyAppTypography._();
 
   static const displayLarge = TextStyle(
-    fontSize: 48,
-    fontWeight: FontWeight.w600,
-    fontFamily: 'Inter',
-    ...
+    fontWeight: FontWeight.w400,
+    fontSize: 36.0,
+    height: 1.22,
+    fontFamily: 'Roboto',
+    letterSpacing: 0.4,
+    decoration: TextDecoration.underline,
   );
+  ...
 }
 ```
 
@@ -88,16 +91,16 @@ class MyAppTheme {
 
 
   static const ColorScheme m3SysDarkColorScheme = ColorScheme.dark(
-    primary: Palette.m3SysDarkPrimaryFixedDim,
-    onPrimary: Palette.m3SysDarkOnPrimaryFixedVariant,
+    primary: Palette.m3SysDarkPrimary,
+    onPrimary: Palette.m3SysDarkOnPrimary,
     primaryContainer: Palette.m3SysDarkPrimaryContainer,
     ...
   );
 
 
   static const ColorScheme m3SysLightColorScheme = ColorScheme.light(
-    primary: Palette.m3SysLightPrimaryFixedDim,
-    onPrimary: Palette.m3SysLightOnPrimaryFixedVariant,
+    primary: Palette.m3SysLightPrimary,
+    onPrimary: Palette.m3SysLightOnPrimary,
     primaryContainer: Palette.m3SysLightPrimaryContainer,
     ...
   );
