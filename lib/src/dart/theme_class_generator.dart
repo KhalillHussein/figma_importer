@@ -4,7 +4,7 @@ import 'package:figma_importer/src/common/common.dart';
 import 'package:figma_importer/src/config/config.dart';
 import 'package:figma_importer/src/dart/dart.dart';
 import 'package:figma_importer/src/parser/parser.dart';
-import 'package:figma_importer/src/utils/utils.dart';
+import 'package:figma_importer/src/utils/file_utils.dart';
 import 'package:mason_logger/mason_logger.dart';
 import 'package:path/path.dart' as p;
 import 'package:recase/recase.dart';
@@ -19,8 +19,9 @@ class ThemeClassGenerator extends DartClassGenerator {
     List<StyleClassConfig> classConfigs,
     ThemeReference themeRef,
     String className,
-    String themeOutputDir,
-  ) {
+    String outputThemeDir, {
+    bool checkIfStylePropertyExists = false,
+  }) {
     final stylePaths = <String>[];
     late List<Field> colorSchemeFields;
     late List<Field> textThemeFields;
@@ -32,35 +33,34 @@ class ThemeClassGenerator extends DartClassGenerator {
     for (final config in classConfigs) {
       if (config.style case StyleDefinition.color) {
         colorSchemeFields = _getColorSchemeFields(
+          stylePaths: stylePaths,
           config: config,
           outputStylesDir: outputStylesDir,
-          stylePaths: stylePaths,
           themeRef: themeRef,
+          checkIfStylePropertyExists: checkIfStylePropertyExists,
         );
       }
       if (config.style case StyleDefinition.typography) {
         textThemeFields = _getTextThemeFields(
+          stylePaths: stylePaths,
           config: config,
           outputStylesDir: outputStylesDir,
-          stylePaths: stylePaths,
           themeRef: themeRef,
+          checkIfStylePropertyExists: checkIfStylePropertyExists,
         );
       }
     }
     if (colorSchemeFields.isEmpty && textThemeFields.isEmpty) {
       throw const EmptyThemeClassException();
     }
-    final themeFields = themeRef.themes
-        .map(
-          (theme) => _getThemeDataField(
-            theme,
-            colorSchemeFields,
-            textThemeFields,
-          ),
-        )
-        .toList();
+    final themeFields = _getThemeDataFields(
+      themeRef,
+      colorSchemeFields,
+      textThemeFields,
+    );
     final relativePaths =
-        stylePaths.map((e) => p.relative(e, from: themeOutputDir));
+        stylePaths.map((e) => p.relative(e, from: outputThemeDir));
+
     return buildClass(
       themeFields + colorSchemeFields + textThemeFields,
       className,
@@ -68,11 +68,24 @@ class ThemeClassGenerator extends DartClassGenerator {
     );
   }
 
+  List<Field> _getThemeDataFields(
+    ThemeReference themeRef,
+    List<Field> colorSchemeFields,
+    List<Field> textThemeFields,
+  ) =>
+      themeRef.themes
+          .map(
+            (theme) =>
+                _getThemeDataField(theme, colorSchemeFields, textThemeFields),
+          )
+          .toList();
+
   List<Field> _getTextThemeFields({
     required String outputStylesDir,
     required StyleClassConfig config,
     required List<String> stylePaths,
     required ThemeReference themeRef,
+    bool checkIfStylePropertyExists = false,
   }) {
     final stylePath =
         '$outputStylesDir/${config.className.snakeCase}${Strings.dartExt}';
@@ -84,6 +97,7 @@ class ThemeClassGenerator extends DartClassGenerator {
         params: e,
         styleClassConfig: config,
         code: content,
+        checkIfStylePropertyExists: checkIfStylePropertyExists,
       );
       return [if (field != null) field];
     }).toList();
@@ -94,6 +108,7 @@ class ThemeClassGenerator extends DartClassGenerator {
     required StyleClassConfig config,
     required List<String> stylePaths,
     required ThemeReference themeRef,
+    bool checkIfStylePropertyExists = false,
   }) {
     final stylePath =
         '$outputStylesDir/${config.className.snakeCase}${Strings.dartExt}';
@@ -105,6 +120,7 @@ class ThemeClassGenerator extends DartClassGenerator {
         styleClassConfig: config,
         code: content,
         factoryName: colorScheme.factory.name,
+        checkIfStylePropertyExists: checkIfStylePropertyExists,
       );
       return [if (field != null) field];
     }).toList();
@@ -112,17 +128,17 @@ class ThemeClassGenerator extends DartClassGenerator {
 
   /// General method for the [ColorScheme] and [TextTheme] object fields.
   /// [params] is the object itself. [styleClassConfig] is a style field that
-  /// will be included in that object. [code] is content from the style file
-  /// that contains properties. for that theme object. [factoryName] should be
-  /// dark or light and is required for [ColorScheme] object.
+  /// will be included in that object. [factoryName] should be dark or light
+  /// and is required for [ColorScheme] object.
   Field? _getThemeObjectField({
     required BaseThemeParams params,
     required StyleClassConfig styleClassConfig,
     required String code,
     String? factoryName,
+    bool checkIfStylePropertyExists = false,
   }) {
     final type = params.runtimeType.toString();
-    final codeSequence = code.allMatchedStyleFields;
+    var isStylePropertyExists = true;
     final codeBuilder = DartObjectBuilder.createObject(
       factoryName != null ? '$type.$factoryName' : type,
     );
@@ -134,25 +150,18 @@ class ThemeClassGenerator extends DartClassGenerator {
           .replaceSpecialCharactersWithUnderscore
           .camelCase
           .trim();
-      final matchedIndex = codeSequence.lastIndexWhere((element) {
-        if (element == null) return false;
-        if (fieldName.isEmpty || fieldName.length < 2) return false;
-
-        return element.containsSubstringNoCase(fieldName);
-      });
-      if (matchedIndex != -1) {
-        codeBuilder.addProperty(
-          name: property.key.camelCase,
-          value: '${styleClassConfig.className}.${codeSequence[matchedIndex]}',
+      if (checkIfStylePropertyExists) {
+        isStylePropertyExists = _checkIfStyleFieldsExists(
+          params: params,
+          styleClassConfig: styleClassConfig,
+          code: code,
+          fieldName: fieldName,
         );
-        continue;
       }
-      _logger.warn(
-        Strings.styleNotFoundLog(
-          styleClassConfig.className,
-          params.name,
-          fieldName,
-        ),
+      if (!isStylePropertyExists) continue;
+      codeBuilder.addProperty(
+        name: property.key.camelCase,
+        value: '${styleClassConfig.className}.$fieldName',
       );
     }
     if (codeBuilder.params.isEmpty) return null;
@@ -171,8 +180,9 @@ class ThemeClassGenerator extends DartClassGenerator {
   /// They are needed for checking if the colorScheme with name from the
   /// [themeConfig] exists. If true, create a field in the ThemeData object.
   /// [textThemes] is a list of [TextTheme] created previously. They are needed
-  /// for checking if the colorScheme with a name in the [themeConfig] exists.
-  /// If true, create a field in the ThemeData object.
+  /// for checking if the colorScheme or textTheme with a name
+  /// in the [themeConfig] exists. If true,
+  /// create a field in the ThemeData object.
   Field _getThemeDataField(
     Theme themeConfig,
     List<Field>? colorSchemes,
@@ -190,7 +200,10 @@ class ThemeClassGenerator extends DartClassGenerator {
       ..addProperty(name: 'brightness', value: themeConfig.brightness);
 
     if (isTextThemeExists) {
-      codeBuilder.addProperty(name: 'textTheme', value: themeConfig.textTheme!);
+      codeBuilder.addProperty(
+        name: 'textTheme',
+        value: themeConfig.textTheme!,
+      );
     } else {
       _logger.warn(
         Strings.themeParamNotFoundLog(
@@ -220,5 +233,32 @@ class ThemeClassGenerator extends DartClassGenerator {
       name: themeConfig.name,
       code: codeBuilder.result,
     );
+  }
+
+  bool _checkIfStyleFieldsExists({
+    required BaseThemeParams params,
+    required StyleClassConfig styleClassConfig,
+    required String code,
+    required String fieldName,
+  }) {
+    final codeSequence = code.allMatchedStyleFields;
+
+    final matchedIndex = codeSequence.lastIndexWhere((element) {
+      if (element == null) return false;
+      if (fieldName.isEmpty || fieldName.length < 2) return false;
+
+      return element.containsSubstringNoCase(fieldName);
+    });
+    if (matchedIndex == -1) {
+      _logger.warn(
+        Strings.styleNotFoundLog(
+          styleClassConfig.className,
+          params.name,
+          fieldName,
+        ),
+      );
+      return false;
+    }
+    return true;
   }
 }

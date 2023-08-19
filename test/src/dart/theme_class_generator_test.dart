@@ -155,7 +155,7 @@ class AppTheme {
   static const ColorScheme lightColorSchemeName = ColorScheme.light(
     primary: Palette.color02,
     onPrimary: Palette.color02,
-    primaryContainer: Palette.color03WithAlpha,
+    primaryContainer: Palette.color03,
     onPrimaryContainer: Palette.color04,
     onSecondary: Palette.color05,
   );
@@ -438,6 +438,7 @@ void main() {
         themeReference,
         'AppTheme',
         'lib/resources',
+        checkIfStylePropertyExists: true,
       );
 
       expect(output, equals(_themeClassString));
@@ -470,6 +471,7 @@ void main() {
         themeReferenceWithWrongColorSchemeAndEmptyTextTheme,
         'AppTheme',
         'lib/resources',
+        checkIfStylePropertyExists: true,
       );
 
       expect(output, equals(_themeClassWithSingleThemeData));
@@ -503,6 +505,7 @@ void main() {
           themeReference,
           'AppTheme',
           'lib/resources',
+          checkIfStylePropertyExists: true,
         ),
         throwsA(isA<EmptyThemeClassException>()),
       );

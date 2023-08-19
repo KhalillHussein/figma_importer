@@ -32,8 +32,9 @@ mixin ThemeGenMixin on FigmaImporterCommand {
   /// Generate file with the theme data properties.
   void genTheme(
     FigmaImporterConfig config,
-    ThemeReference themeReference,
-  ) {
+    ThemeReference themeReference, {
+    bool isManual = true,
+  }) {
     final className = config.themeClassConfig!.className;
     final codeGenerator = ThemeClassGenerator(logger: logger);
     final code = codeGenerator.generateThemeClass(
@@ -42,6 +43,7 @@ mixin ThemeGenMixin on FigmaImporterCommand {
       themeReference,
       className,
       config.themeClassConfig!.outputDirectoryPath,
+      checkIfStylePropertyExists: isManual,
     );
     final dir = config.themeClassConfig!.outputDirectoryPath;
     final path = '$dir/${className.snakeCase}${Strings.dartExt}';
@@ -62,7 +64,6 @@ mixin ThemeGenMixin on FigmaImporterCommand {
         final fileContent = FileUtils.readFile(
           '${config.outputDirectoryPath}/${styleConfig.className.snakeCase}${Strings.dartExt}',
         );
-
         _createColorScheme(
           fileContent.allMatchedStyleFields,
           colorSchemeFields,
@@ -80,10 +81,9 @@ mixin ThemeGenMixin on FigmaImporterCommand {
         );
       }
     }
-
     _filterFields(colorSchemes, textThemes);
     final themeRef = _createThemeReference(colorSchemes, textThemes);
-    genTheme(config, themeRef);
+    genTheme(config, themeRef, isManual: false);
   }
 
   /// Remove theme objects that contain less than 3 params.
@@ -206,6 +206,7 @@ mixin ThemeGenMixin on FigmaImporterCommand {
 
     final indexToUpdate =
         textThemes.indexWhere((element) => element.name == name);
+
     if (indexToUpdate == -1) {
       //add new text theme if does not exists
       textThemes.add((name: name, properties: {keyToUpdate: styleName}));
