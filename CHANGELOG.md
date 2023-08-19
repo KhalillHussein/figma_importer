@@ -1,4 +1,4 @@
-## 0.1.2
+## 0.1.3
 
 * Fix `auto` theme generation for theme variations
 * Improved code examples in docs
